@@ -1,0 +1,1 @@
+from scraper.logger.log import scraper_log
