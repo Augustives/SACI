@@ -10,7 +10,10 @@ algorithm_schema = {
             'description': 'The time complexity of the algorithm',
             'type': 'string'
         },
-        # space_complexity
+        'space_complexity': {
+            'description': 'The space complexity of the algorithm',
+            'type': 'string'
+        },
         'raw_algorithm': {
             'description': 'The algorithm code',
             'type': 'string'
