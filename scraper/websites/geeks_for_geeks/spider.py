@@ -1,11 +1,10 @@
-import re
 from asyncio import gather
 from bs4 import BeautifulSoup
 
 from scraper.logger import log
 from scraper.session import HttpSession, Methods
 from scraper.session.response import Response
-from scraper.utils.regex import COMPLEXITY_REGEX
+from scraper.utils.regex import re_search
 
 from scraper.websites.geeks_for_geeks.extraction_methods import (
     EXTRACTION_METHODS
@@ -15,6 +14,14 @@ from scraper.websites.geeks_for_geeks.settings import (
 )
 
 
+# ------- VALIDATORS -------
+def validate_algorithm_data(algorithm_data: dict):
+    for key, value in algorithm_data.items():
+        if not value:
+            log.error(f'Failed to extract {key}')
+
+
+# ------- PARSERS -------
 def parse_algorithm_schema(algorithm_data: dict):
     pass
 
@@ -22,23 +29,29 @@ def parse_algorithm_schema(algorithm_data: dict):
 def parse_complexity(raw_complexity: str):
     if 'Time' and 'Auxiliary' in raw_complexity:
         time, space = (
-            re.search(COMPLEXITY_REGEX, complexity)
+            re_search(complexity)
             for complexity in raw_complexity.split('Auxiliary')
         )
 
-        # TODO: Validar o match
         complexity = {
-            'time': time.group(),
-            'space': space.group()
+            'time': time,
+            'space': space
         }
     else:
         complexity = {
-            'time': re.search(COMPLEXITY_REGEX, raw_complexity).group()
+            'time': re_search(raw_complexity)
         }
+
+    for value in complexity.values():
+        if value is None:
+            log.error(
+                f'Failed to parse complexity: {raw_complexity}'
+            )
 
     return complexity
 
 
+# ------- FILTERS -------
 def filter_algorithms_urls(alorithms_urls: list):
     return list(
         filter(
@@ -48,6 +61,7 @@ def filter_algorithms_urls(alorithms_urls: list):
     )
 
 
+# ------- EXTRACTORS -------
 def extract_name(soup):
     name = soup.find(
         'div', {'class': 'article-title'}
@@ -55,8 +69,7 @@ def extract_name(soup):
 
     if name:
         return name.findNext().text
-    else:
-        return ''
+    return ''
 
 
 def extract_complexity(soup):
@@ -91,13 +104,17 @@ def extract_algorithms_urls(response: Response):
     )
 
 
+# ------- FOLLOWS -------
 async def follow_algorithms(session: HttpSession, algorithms_urls: list):
     return await gather(
         *[
             session.request(
                 method=Methods.GET.value,
                 url=url,
-                callbacks=[extract_algorithm_data]
+                callbacks=[
+                    extract_algorithm_data,
+                    validate_algorithm_data
+                ]
             )
             for url in algorithms_urls
         ]

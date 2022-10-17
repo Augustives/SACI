@@ -5,7 +5,7 @@ from scraper.logger.settings import LOG_FORMAT
 class AddScraperName(Filter):
     def filter(self, record):
         if not hasattr(record, 'scraper'):
-            record.scraper = 'teste derive scraper'
+            record.scraper = record.pathname.split('\\')[-2]
         return True
 
 

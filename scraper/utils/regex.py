@@ -10,5 +10,13 @@ import re
 COMPLEXITY_REGEX = r'O\(.*?\)'
 
 
-def search(patter: str, text: str):
+def re_search(text: str, pattern: str = COMPLEXITY_REGEX):
+    match = re.search(pattern, text)
+    if match:
+        return match.group()
+    else:
+        return None
+
+
+def re_all():
     ...
