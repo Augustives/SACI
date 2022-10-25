@@ -1,17 +1,13 @@
 from asyncio import gather
-from bs4 import BeautifulSoup
 
-from scraper.logger import log
-from scraper.session import HttpSession, Methods
+from scraper.logger.log import scraper_log as log
+from scraper.schema.json_schemas import ALGORITHM
+from scraper.schema.schema import Schema
+from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
-from scraper.utils.regex import re_search
-
-from scraper.websites.geeks_for_geeks.extraction_methods import (
-    EXTRACTION_METHODS
-)
-from scraper.websites.geeks_for_geeks.settings import (
-    HEADERS, ALGORITHMS_URL
-)
+from scraper.session.utils import Methods
+from scraper.websites.geeks_for_geeks.extract import EXTRACT_METHODS
+from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_URL, HEADERS
 
 
 # ------- VALIDATORS -------
@@ -23,32 +19,11 @@ def validate_algorithm_data(algorithm_data: dict):
 
 # ------- PARSERS -------
 def parse_algorithm_schema(algorithm_data: dict):
-    pass
+    algorithm_schema = Schema(
+        algorithm_data, ALGORITHM
+    )
 
-
-def parse_complexity(raw_complexity: str):
-    if 'Time' and 'Auxiliary' in raw_complexity:
-        time, space = (
-            re_search(complexity)
-            for complexity in raw_complexity.split('Auxiliary')
-        )
-
-        complexity = {
-            'time': time,
-            'space': space
-        }
-    else:
-        complexity = {
-            'time': re_search(raw_complexity)
-        }
-
-    for value in complexity.values():
-        if value is None:
-            log.error(
-                f'Failed to parse complexity: {raw_complexity}'
-            )
-
-    return complexity
+    return algorithm_schema.validate()
 
 
 # ------- FILTERS -------
@@ -62,35 +37,25 @@ def filter_algorithms_urls(alorithms_urls: list):
 
 
 # ------- EXTRACTORS -------
-def extract_name(soup):
-    name = soup.find(
-        'div', {'class': 'article-title'}
-    )
-
-    if name:
-        return name.findNext().text
-    return ''
-
-
-def extract_complexity(soup):
-    for method in EXTRACTION_METHODS:
-        raw_complexity = method(soup)
-        if raw_complexity:
-            return parse_complexity(raw_complexity)
-
-
 def extract_algorithm_data(response: Response):
-    soup = BeautifulSoup(response.content, 'html.parser')
+    for extract, parse in EXTRACT_METHODS:
+        raw_data = extract(response)
 
-    return {
-        'name': extract_name(soup),
-        'complexity': extract_complexity(soup)
-    }
+        if raw_data:
+            return parse(raw_data)
+
+    # return {
+    #     'name': '',
+    #     'time_complexity': data.get('time', ''),
+    #     'space_complexity': data.get('space', ''),
+    #     'raw_algorithm': ''
+    # }
 
 
 def extract_algorithms_urls(response: Response):
-    soup = BeautifulSoup(response.content, 'html.parser')
-    page_content = soup.find('div', {'class': 'page_content'})
+    page_content = response.soup.find(
+        'div', {'class': 'page_content'}
+    )
 
     return list(
         filter(

@@ -1,6 +1,5 @@
 import re
 
-
 # COMPLEXITY_REGEX = (
 #     r'O\(\w*\d+\)'
 #     r'|O\(\w*\+\w+\)'
@@ -10,7 +9,7 @@ import re
 COMPLEXITY_REGEX = r'O\(.*?\)'
 
 
-def re_search(text: str, pattern: str = COMPLEXITY_REGEX):
+def re_search_complexity(text: str, pattern: str = COMPLEXITY_REGEX):
     match = re.search(pattern, text)
     if match:
         return match.group()

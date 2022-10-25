@@ -1,16 +1,15 @@
-from aiohttp import ClientSession
-from requests_html import AsyncHTMLSession
 from re import match
 
+from aiohttp import ClientSession
+from requests_html import AsyncHTMLSession
+
 from scraper.session.response import Response
-from scraper.session.utils import (
-    MissingMethodException, MissingArgumentException,
-    InvalidUrlException, InvalidArgumentType,
-    UnsupportedMethodException,
-)
-from scraper.session.settings import (
-    REQUIRED_REQUEST_ARGS, REGEX, MAX_REDIRECTS
-)
+from scraper.session.settings import (MAX_REDIRECTS, REGEX,
+                                      REQUIRED_REQUEST_ARGS)
+from scraper.session.utils import (InvalidArgumentType, InvalidUrlException,
+                                   MissingArgumentException,
+                                   MissingMethodException,
+                                   UnsupportedMethodException)
 
 
 class HttpSession:
