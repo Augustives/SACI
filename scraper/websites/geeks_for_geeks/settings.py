@@ -35,3 +35,9 @@ ALGORITHM_LINKS_JS_SCRIPT = """
         return algorithm_links
     }
 """
+
+REGEX = {
+    'complexity': r'Time [Cc]omplexity[\s]?[:]+',
+    'time_complexity': r'Time [Cc]omplexity[\s]?[:]+\s*(O\(.*?\))',
+    'auxiliary_space': r'Auxiliary [Ss]pace[\s]?[:]+\s*(O\(.*?\))'
+}
