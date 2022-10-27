@@ -37,7 +37,14 @@ ALGORITHM_LINKS_JS_SCRIPT = """
 """
 
 REGEX = {
-    'complexity': r'Time [Cc]omplexity[\s]?[:]+',
-    'time_complexity': r'Time [Cc]omplexity[\s]?[:]+\s*(O\(.*?\))',
-    'auxiliary_space': r'Auxiliary [Ss]pace[\s]?[:]+\s*(O\(.*?\))'
+    'time': r'Time [Cc]omplexity[\s]?[:]+',
+    'auxiliary': r'Auxiliary [Ss]pace[\s]?[:]+',
+    'time_complexity': r'Time [Cc]omplexity[\s]?[:]+\s*.*?(O\s*\(.*?\))',
+    'auxiliary_space': r'Auxiliary [Ss]pace[\s]?[\[Cc\]omplexity]*[:]+\s*.*?(O\s*\(.*?\))'  # noqa
+}
+
+
+SYMBOL_TABLE = {
+    '\u221a': '√',
+
 }

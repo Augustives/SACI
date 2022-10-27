@@ -1,5 +1,3 @@
-import json
-
 from jsonschema import validate
 
 
@@ -10,7 +8,7 @@ class Schema:
 
     def validate(self):
         validate(
-            instace=self.isntance, schema=self.schema
+            instance=self.instance, schema=self._schema
         )
 
-        return json.dumps(self.schema)
+        return self.instance

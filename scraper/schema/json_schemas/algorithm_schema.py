@@ -14,6 +14,10 @@ algorithm_schema = {
             'description': 'The space complexity of the algorithm',
             'type': 'string'
         },
+        'code_comments': {
+
+        },
+        # TODO Dicionario por linguagem disponivel
         'raw_algorithm': {
             'description': 'The algorithm code',
             'type': 'string'

@@ -6,15 +6,8 @@ from scraper.schema.schema import Schema
 from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
 from scraper.session.utils import Methods
-from scraper.websites.geeks_for_geeks.extract import EXTRACT_METHODS
+from scraper.websites.geeks_for_geeks.extract import extract
 from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_URL, HEADERS
-
-
-# ------- VALIDATORS -------
-def validate_algorithm_data(algorithm_data: dict):
-    for key, value in algorithm_data.items():
-        if not value:
-            log.error(f"Failed to extract {key}")
 
 
 # ------- PARSERS -------
@@ -31,11 +24,10 @@ def filter_algorithms_urls(alorithms_urls: list):
 
 # ------- EXTRACTORS -------
 def extract_algorithm_data(response: Response):
-    for method in EXTRACT_METHODS:
-        data = method(response)
-
-        if data:
-            return data
+    data = extract(response)
+    if data:
+        return data
+    return []
 
 
 def extract_algorithms_urls(response: Response):
@@ -55,16 +47,21 @@ def extract_algorithms_urls(response: Response):
 
 # ------- FOLLOWS -------
 async def follow_algorithms(session: HttpSession, algorithms_urls: list):
-    return await gather(
+    algorithms = await gather(
         *[
             session.request(
                 method=Methods.GET.value,
                 url=url,
-                callbacks=[extract_algorithm_data, validate_algorithm_data],
+                callbacks=[extract_algorithm_data],
             )
             for url in algorithms_urls
         ]
     )
+
+    return [
+        algorithm
+        for algorithm_list in algorithms for algorithm in algorithm_list
+    ]
 
 
 async def follow_algorithms_urls(session: HttpSession):
@@ -82,8 +79,7 @@ async def run():
     log.info('Starting "Geeks for Geeks" algorithms extraction')
     # algorithms_urls = await follow_algorithms_urls(session)
     algorithms_urls = [
-        "https://www.geeksforgeeks.org/linear-search/",
-        "https://www.geeksforgeeks.org/binary-search/",
+        'https://www.geeksforgeeks.org/selection-sort/?ref=gcse'
     ]
     algorithms_data = await follow_algorithms(session, algorithms_urls)
     algorithms_schema = [

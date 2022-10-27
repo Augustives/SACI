@@ -1,9 +1,10 @@
+from base64 import b64encode
 from re import compile, search
 
 from scraper.websites.geeks_for_geeks.settings import REGEX
 
 
-# ------- COMMON -------
+# ------- EXTRACT METHODS -------
 def extract_main_name(response):
     name = response.soup.find(
         'div', {'class': 'article-title'}
@@ -28,32 +29,66 @@ def extract_auxiliary_space(complexity):
     return ''
 
 
+def look_for_auxiliary_space(complexity):
+    if not extract_auxiliary_space(complexity):
+        auxiliary_space = complexity.find_next(
+            string=compile(REGEX['auxiliary'])
+        )
+        if auxiliary_space:
+            return (
+                complexity.find_previous('p').text +
+                auxiliary_space.find_previous('p').text
+            )
+    return complexity.find_previous('p').text
+
+
 def extract_code(code_table):
-    ...
+    code_text = ""
+    code_lines = code_table.find_all('div', {'class': 'line'})
+    for line in code_lines:
+        code_pieces = line.find_all('code')
+        for code in code_pieces:
+            code_text += code.text
+        code_text += '\n'
+    return code_text
 
 
 def parse_code(code_text):
-    ...
+    # TODO Parse the code in an understandable way, remove comments, etc
+    return str(
+        b64encode(code_text.encode())
+    )
 
 
-# ------- METHODS -------
-def method_1(response):
+# ------- EXTRACT -------
+def extract(response):
     name = extract_main_name(response)
 
     raw_complexitys = response.soup.find_all(
-        string=compile(REGEX['complexity'])
+        string=compile(REGEX['time'])
     )
-    raw_algorithms = [
-        complexity.find_previous('td', {'class': 'code'})
-        for complexity in raw_complexitys
-    ]
+
+    raw_algorithms = []
+    for complexity in raw_complexitys:
+        python_algorithm = complexity.find_previous(
+                'h2', {'class': 'tabtitle'},
+                string=compile(r'Python')
+            )
+        if python_algorithm:
+            raw_algorithms.append(
+                python_algorithm.find_next(
+                    'td', {'class': 'code'}
+                )
+            )
+
     if not raw_complexitys or not raw_algorithms:
-        return None
+        return []
 
     complexitys = [
-        complexity.find_previous('p').text
+        look_for_auxiliary_space(complexity)
         for complexity in raw_complexitys
     ]
+
     algorithms = [
         parse_code(
             extract_code(algorithm)
@@ -61,20 +96,12 @@ def method_1(response):
         for algorithm in raw_algorithms
     ]
 
-    x = [
+    return [
         {
             'name': name,
             'time_complexity': extract_time_complexity(complexity),
             'space_complexity': extract_auxiliary_space(complexity),
             'raw_algorithm': algorithm
         }
-        for complexity in complexitys
-        for algorithm in algorithms
+        for complexity, algorithm in zip(complexitys, algorithms)
     ]
-
-    return x
-
-
-EXTRACT_METHODS = [
-    method_1
-]
