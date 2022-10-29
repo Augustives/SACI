@@ -1,7 +1,9 @@
 from base64 import b64encode
 from re import compile, search
 
-from scraper.websites.geeks_for_geeks.settings import REGEX
+from scraper.observability.log import scraper_log as log
+from scraper.observability.metric import Stages
+from scraper.websites.geeks_for_geeks.settings import LANGUAGES, METRIC, REGEX
 
 
 # ------- EXTRACT METHODS -------
@@ -9,12 +11,12 @@ def extract_main_name(response):
     name = response.soup.find(
         'div', {'class': 'article-title'}
     )
-
     if name:
         return name.text
     return ''
 
 
+@METRIC.decorator(Stages.TIME.value)
 def extract_time_complexity(complexity):
     match = search(REGEX['time_complexity'], complexity)
     if match:
@@ -22,6 +24,7 @@ def extract_time_complexity(complexity):
     return ''
 
 
+@METRIC.decorator(Stages.SPACE.value)
 def extract_auxiliary_space(complexity):
     match = search(REGEX['auxiliary_space'], complexity)
     if match:
@@ -29,20 +32,7 @@ def extract_auxiliary_space(complexity):
     return ''
 
 
-def look_for_auxiliary_space(complexity):
-    if not extract_auxiliary_space(complexity):
-        auxiliary_space = complexity.find_next(
-            string=compile(REGEX['auxiliary'])
-        )
-        if auxiliary_space:
-            return (
-                complexity.find_previous('p').text +
-                auxiliary_space.find_previous('p').text
-            )
-    return complexity.find_previous('p').text
-
-
-def extract_code(code_table):
+def extract_algorithm(code_table):
     code_text = ""
     code_lines = code_table.find_all('div', {'class': 'line'})
     for line in code_lines:
@@ -53,6 +43,70 @@ def extract_code(code_table):
     return code_text
 
 
+# ------- SEARCH METHODS -------
+def look_for_algorithms(response):
+    raw_algorithms = []
+    dom_references = []
+
+    algorithm_tabs = response.soup.find_all(
+        'div', {'class': 'responsive-tabs'}
+    )
+    for tab in algorithm_tabs:
+        languages_algorithms = {}
+        dom_references.append(tab)
+
+        for language in LANGUAGES:
+            algorithm = tab.find_next(
+                    'h2', {'class': 'tabtitle'},
+                    string=f'{language}'
+                )
+
+            if algorithm:
+                languages_algorithms[language] = parse_code(
+                    extract_algorithm(
+                        algorithm.find_next(
+                            'td', {'class': 'code'}
+                        )
+                    )
+                )
+
+        raw_algorithms.append(languages_algorithms)
+
+    return raw_algorithms, dom_references
+
+
+def look_for_complexity(dom_reference):
+    complexity = dom_reference.find_next(
+        string=compile(REGEX['time'])
+    )
+    return look_for_auxiliary_space(complexity)
+
+
+def look_for_auxiliary_space(complexity):
+    complexitys = {
+        'time': extract_time_complexity(
+            complexity.find_previous('p').text
+        )
+    }
+
+    if not extract_auxiliary_space(complexity):
+        auxiliary_space = complexity.find_next(
+            string=compile(REGEX['auxiliary'])
+        )
+        if auxiliary_space:
+            complexitys['space'] = extract_auxiliary_space(
+                auxiliary_space.find_previous('p').text
+            )
+
+    return complexitys
+
+
+def look_for_name(dom_reference):
+
+    ...
+
+
+# ------- PARSE METHODS -------
 def parse_code(code_text):
     # TODO Parse the code in an understandable way, remove comments, etc
     return str(
@@ -62,46 +116,28 @@ def parse_code(code_text):
 
 # ------- EXTRACT -------
 def extract(response):
-    name = extract_main_name(response)
+    algorithms, dom_references = look_for_algorithms(response)
+    if not algorithms:
+        log.error(
+            'Failed to find complexity or algorithms.'
+            f'URL: {response.url}'
+        )
+        return None
 
-    raw_complexitys = response.soup.find_all(
-        string=compile(REGEX['time'])
-    )
-
-    raw_algorithms = []
-    for complexity in raw_complexitys:
-        python_algorithm = complexity.find_previous(
-                'h2', {'class': 'tabtitle'},
-                string=compile(r'Python')
-            )
-        if python_algorithm:
-            raw_algorithms.append(
-                python_algorithm.find_next(
-                    'td', {'class': 'code'}
-                )
-            )
-
-    if not raw_complexitys or not raw_algorithms:
-        return []
+    # TODO look_for_titles_function
+    names = extract_main_name(response)
 
     complexitys = [
-        look_for_auxiliary_space(complexity)
-        for complexity in raw_complexitys
-    ]
-
-    algorithms = [
-        parse_code(
-            extract_code(algorithm)
-        )
-        for algorithm in raw_algorithms
+        look_for_complexity(dom_reference)
+        for dom_reference in dom_references
     ]
 
     return [
         {
             'name': name,
-            'time_complexity': extract_time_complexity(complexity),
-            'space_complexity': extract_auxiliary_space(complexity),
+            'time_complexity': complexity['time'],
+            'space_complexity': complexity['space'],
             'raw_algorithm': algorithm
         }
-        for complexity, algorithm in zip(complexitys, algorithms)
+        for name, complexity, algorithm in zip(names, complexitys, algorithms)
     ]

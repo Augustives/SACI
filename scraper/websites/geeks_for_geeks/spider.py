@@ -1,25 +1,30 @@
 from asyncio import gather
 
-from scraper.logger.log import scraper_log as log
+from scraper.observability.log import scraper_log as log
 from scraper.schema.json_schemas import ALGORITHM
 from scraper.schema.schema import Schema
 from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
 from scraper.session.utils import Methods
 from scraper.websites.geeks_for_geeks.extract import extract
-from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_URL, HEADERS
+from scraper.websites.geeks_for_geeks.settings import (ALGORITHMS_URL, HEADERS,
+                                                       METRIC)
 
 
 # ------- PARSERS -------
 def parse_algorithm_schema(algorithm_data: dict):
     algorithm_schema = Schema(algorithm_data, ALGORITHM)
-
     return algorithm_schema.validate()
 
 
 # ------- FILTERS -------
 def filter_algorithms_urls(alorithms_urls: list):
-    return list(filter(lambda href: ("geeksquiz" not in href), alorithms_urls))
+    return list(
+        filter(
+            lambda href: ("geeksquiz" not in href),
+            alorithms_urls
+        )
+    )
 
 
 # ------- EXTRACTORS -------
@@ -32,7 +37,6 @@ def extract_algorithm_data(response: Response):
 
 def extract_algorithms_urls(response: Response):
     page_content = response.soup.find("div", {"class": "page_content"})
-
     return list(
         filter(
             None,
@@ -52,16 +56,15 @@ async def follow_algorithms(session: HttpSession, algorithms_urls: list):
             session.request(
                 method=Methods.GET.value,
                 url=url,
-                callbacks=[extract_algorithm_data],
+                callbacks=[
+                    extract_algorithm_data,
+                    parse_algorithm_schema
+                ],
             )
             for url in algorithms_urls
         ]
     )
-
-    return [
-        algorithm
-        for algorithm_list in algorithms for algorithm in algorithm_list
-    ]
+    return sum(algorithms, [])
 
 
 async def follow_algorithms_urls(session: HttpSession):
@@ -79,12 +82,10 @@ async def run():
     log.info('Starting "Geeks for Geeks" algorithms extraction')
     # algorithms_urls = await follow_algorithms_urls(session)
     algorithms_urls = [
-        'https://www.geeksforgeeks.org/selection-sort/?ref=gcse'
+        'https://www.geeksforgeeks.org/linear-search/',
+        # 'https://www.geeksforgeeks.org/selection-sort/?ref=gcse',
     ]
-    algorithms_data = await follow_algorithms(session, algorithms_urls)
-    algorithms_schema = [
-        parse_algorithm_schema(algorithm_data)
-        for algorithm_data in algorithms_data
-    ]
+    algorithms = await follow_algorithms(session, algorithms_urls)
 
-    return algorithms_schema
+    METRIC.print_metric()
+    return algorithms

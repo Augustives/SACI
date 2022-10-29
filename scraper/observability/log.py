@@ -1,5 +1,6 @@
-from logging import getLogger, Formatter, StreamHandler, Filter, DEBUG
-from scraper.logger.settings import LOG_FORMAT
+from logging import DEBUG, Filter, Formatter, StreamHandler, getLogger
+
+from scraper.observability.settings import LOG_FORMAT
 
 
 class AddScraperName(Filter):
