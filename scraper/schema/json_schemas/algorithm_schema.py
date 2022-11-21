@@ -1,6 +1,7 @@
 algorithm_schema = {
     'title': 'Algorithm',
     'description': 'An extracted algorithm with its atributes',
+    'type': 'object',
     'properties': {
         'name': {
             'description': 'The name of the algorithm',
@@ -8,21 +9,24 @@ algorithm_schema = {
         },
         'time_complexity': {
             'description': 'The time complexity of the algorithm',
-            'type': 'string'
+            'type': ['string', 'null']
         },
         'space_complexity': {
             'description': 'The space complexity of the algorithm',
-            'type': 'string'
-        },
-        'code_comments': {
+            'type': ['string', 'null']
         },
         'url': {
-        },
-        # TODO Dicionario por linguagem disponivel
-        'raw_algorithm': {
-            'description': 'The algorithm code',
+            'description': 'The URL of the given algorithm',
             'type': 'string'
-        }
+        },
+        'algorithm': {
+            'description': 'The algorithm code',
+            'type': 'object',
+            'properties': {
+                'code': {'type': 'string'},
+                'comments': {'type': 'string'}
+            }
+        },
     },
     'required': []
 }

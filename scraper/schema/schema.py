@@ -10,5 +10,3 @@ class Schema:
         validate(
             instance=self.instance, schema=self._schema
         )
-
-        return self.instance

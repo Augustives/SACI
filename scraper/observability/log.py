@@ -7,7 +7,7 @@ from scraper.observability.settings import (SCRAPER_LOG_FORMAT,
 class AddScraperName(Filter):
     def filter(self, record):
         if not hasattr(record, 'scraper'):
-            record.scraper = record.pathname.split('\\')[-2]
+            record.scraper = record.pathname.split('/')[-2]
         return True
 
 

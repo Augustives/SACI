@@ -8,14 +8,16 @@ from scraper.session.response import Response
 from scraper.session.utils import Methods
 from scraper.websites.geeks_for_geeks.extract import extract
 from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_URL, HEADERS
+from scraper.observability.metric import calculate_completition_rate
 
 
 # ------- PARSERS -------
 def parse_algorithm_schema(algorithm_data: dict):
     if algorithm_data:
-        algorithm_schema = Schema(algorithm_data, ALGORITHM)
-        return algorithm_schema.validate()
-    return []
+        for algorithm in algorithm_data:
+            algorithm_schema = Schema(algorithm, ALGORITHM)
+            algorithm_schema.validate()
+    return algorithm_data
 
 
 # ------- FILTERS -------
@@ -84,8 +86,10 @@ async def run():
     log.info('Starting "Geeks for Geeks" algorithms extraction')
     algorithms_urls = await follow_algorithms_urls(session)
     # algorithms_urls = [
-    #     'https://www.geeksforgeeks.org/random-number-generator-in-arbitrary-probability-distribution-fashion/',
+    #     'https://www.geeksforgeeks.org/binary-search-preferred-ternary-search/',
     # ]
+
     algorithms = await follow_algorithms(session, algorithms_urls)
+    calculate_completition_rate(algorithms)
 
     return algorithms

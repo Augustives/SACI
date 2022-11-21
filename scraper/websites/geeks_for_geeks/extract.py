@@ -40,9 +40,19 @@ def extract_algorithm(code_table):
     return code_text
 
 
+def extract_algorithm_comments(algorithm):
+    algorithm_comments = ''
+    for line in algorithm.splitlines():
+        if line[:2] in ['//', '# ']:
+            algorithm_comments += line
+            algorithm_comments += '\n'
+        else:
+            return algorithm_comments
+
+
 # ------- SEARCH METHODS -------
 def look_for_algorithms(response):
-    raw_algorithms = []
+    algorithms = []
     dom_references = []
 
     algorithm_tabs = response.soup.find_all(
@@ -59,17 +69,20 @@ def look_for_algorithms(response):
                 )
 
             if algorithm:
-                languages_algorithms[language] = parse_code(
-                    extract_algorithm(
-                        algorithm.find_next(
-                            'td', {'class': 'code'}
-                        )
+                code = extract_algorithm(
+                    algorithm.find_next(
+                        'td', {'class': 'code'}
                     )
                 )
 
-        raw_algorithms.append(languages_algorithms)
+                languages_algorithms[language] = {
+                    'code': parse_code(code),
+                    'comments': extract_algorithm_comments(code)
+                }
 
-    return raw_algorithms, dom_references
+        algorithms.append(languages_algorithms)
+
+    return algorithms, dom_references
 
 
 def look_for_complexity(dom_reference):
@@ -100,11 +113,11 @@ def look_for_auxiliary_space(complexity):
     return complexitys
 
 
-def look_for_name(dom_reference):
+def look_for_names(dom_reference, response):
     name = dom_reference.find_previous('h2')
-    if name:
-        return name.text
-    return ''
+    if not name or 'tabtitle' in name.get('class', ''):
+        return extract_main_name(response)
+    return name.text
 
 
 # ------- PARSE METHODS -------
@@ -137,7 +150,7 @@ def extract(response):
         return []
 
     names = [
-        look_for_name(dom_reference)
+        look_for_names(dom_reference, response)
         for dom_reference in dom_references[1:]
     ]
     names.insert(0, extract_main_name(response))
@@ -148,7 +161,8 @@ def extract(response):
             'time_complexity': complexity.get('time'),
             'space_complexity': complexity.get('space'),
             'url': f'{response.url}',
-            'raw_algorithm': algorithm
+            'algorithm': algorithm,
         }
-        for name, complexity, algorithm in zip(names, complexitys, algorithms)
+        for name, complexity, algorithm in
+        zip(names, complexitys, algorithms)
     ]

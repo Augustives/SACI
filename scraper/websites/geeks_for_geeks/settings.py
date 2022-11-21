@@ -49,6 +49,7 @@ LANGUAGES = [
     'C#',
     'C++',
     'Python3',
+    'Python',
     'PHP',
     'Java',
     'Javascript'
