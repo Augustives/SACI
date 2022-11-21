@@ -19,14 +19,12 @@ def extract_time_complexity(complexity):
     match = search(REGEX['time_complexity'], complexity)
     if match:
         return match.group(1)
-    return ''
 
 
 def extract_auxiliary_space(complexity):
     match = search(REGEX['auxiliary_space'], complexity)
     if match:
         return match.group(1)
-    return ''
 
 
 def extract_algorithm(code_table):
