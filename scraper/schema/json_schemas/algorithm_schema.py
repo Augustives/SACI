@@ -15,7 +15,8 @@ algorithm_schema = {
             'type': 'string'
         },
         'code_comments': {
-
+        },
+        'url': {
         },
         # TODO Dicionario por linguagem disponivel
         'raw_algorithm': {

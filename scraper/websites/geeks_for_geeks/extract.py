@@ -2,8 +2,7 @@ from base64 import b64encode
 from re import compile, search
 
 from scraper.observability.log import scraper_log as log
-from scraper.observability.metric import Stages
-from scraper.websites.geeks_for_geeks.settings import LANGUAGES, METRIC, REGEX
+from scraper.websites.geeks_for_geeks.settings import LANGUAGES, REGEX
 
 
 # ------- EXTRACT METHODS -------
@@ -16,7 +15,6 @@ def extract_main_name(response):
     return ''
 
 
-@METRIC.decorator(Stages.TIME.value)
 def extract_time_complexity(complexity):
     match = search(REGEX['time_complexity'], complexity)
     if match:
@@ -24,7 +22,6 @@ def extract_time_complexity(complexity):
     return ''
 
 
-@METRIC.decorator(Stages.SPACE.value)
 def extract_auxiliary_space(complexity):
     match = search(REGEX['auxiliary_space'], complexity)
     if match:
@@ -79,6 +76,8 @@ def look_for_complexity(dom_reference):
     complexity = dom_reference.find_next(
         string=compile(REGEX['time'])
     )
+    if not complexity:
+        return {}
     return look_for_auxiliary_space(complexity)
 
 
@@ -102,8 +101,10 @@ def look_for_auxiliary_space(complexity):
 
 
 def look_for_name(dom_reference):
-
-    ...
+    name = dom_reference.find_previous('h2')
+    if name:
+        return name.text
+    return ''
 
 
 # ------- PARSE METHODS -------
@@ -118,25 +119,35 @@ def parse_code(code_text):
 def extract(response):
     algorithms, dom_references = look_for_algorithms(response)
     if not algorithms:
-        log.error(
-            'Failed to find complexity or algorithms.'
+        log.warning(
+            'Failed to find algorithms. '
             f'URL: {response.url}'
         )
-        return None
-
-    # TODO look_for_titles_function
-    names = extract_main_name(response)
+        return []
 
     complexitys = [
         look_for_complexity(dom_reference)
         for dom_reference in dom_references
     ]
+    if not complexitys:
+        log.error(
+            'Failed to find complexitys. '
+            f'URL: {response.url}'
+        )
+        return []
+
+    names = [
+        look_for_name(dom_reference)
+        for dom_reference in dom_references[1:]
+    ]
+    names.insert(0, extract_main_name(response))
 
     return [
         {
             'name': name,
-            'time_complexity': complexity['time'],
-            'space_complexity': complexity['space'],
+            'time_complexity': complexity.get('time'),
+            'space_complexity': complexity.get('space'),
+            'url': f'{response.url}',
             'raw_algorithm': algorithm
         }
         for name, complexity, algorithm in zip(names, complexitys, algorithms)

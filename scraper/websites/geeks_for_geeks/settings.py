@@ -1,7 +1,3 @@
-from scraper.observability.metric import Metric
-
-METRIC = Metric()
-
 BASE_URL = 'https://www.geeksforgeeks.org'
 ALGORITHMS_URL = f'{BASE_URL}/fundamentals-of-algorithms'
 

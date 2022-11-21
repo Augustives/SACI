@@ -1,8 +1,10 @@
+import asyncio
 from re import match
 
-from aiohttp import ClientSession
+from aiohttp import ClientOSError, ClientSession
 from requests_html import AsyncHTMLSession
 
+from scraper.observability.log import session_log as log
 from scraper.session.response import Response
 from scraper.session.settings import (MAX_REDIRECTS, REGEX,
                                       REQUIRED_REQUEST_ARGS)
@@ -63,13 +65,21 @@ class HttpSession:
         self._validate_request_args(*args, **kwargs)
         callbacks = kwargs.pop('callbacks', None)
 
-        response = await self._session.request(
-            max_redirects=MAX_REDIRECTS,
-            **{
-                **kwargs,
-                'headers': self._make_headers(kwargs.get('headers', {}))
-            }
-        )
+        try:
+            response = await self._session.request(
+                max_redirects=MAX_REDIRECTS,
+                **{
+                    **kwargs,
+                    'headers': self._make_headers(kwargs.get('headers', {}))
+                }
+            )
+            await asyncio.sleep(1)
+        except ClientOSError:
+            log.error(
+                f'Request failed. URL: {kwargs.get("url")}'
+            )
+            return []
+
         response = await Response.create_response_object(response)
 
         if callbacks:

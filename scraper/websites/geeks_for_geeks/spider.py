@@ -7,14 +7,15 @@ from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
 from scraper.session.utils import Methods
 from scraper.websites.geeks_for_geeks.extract import extract
-from scraper.websites.geeks_for_geeks.settings import (ALGORITHMS_URL, HEADERS,
-                                                       METRIC)
+from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_URL, HEADERS
 
 
 # ------- PARSERS -------
 def parse_algorithm_schema(algorithm_data: dict):
-    algorithm_schema = Schema(algorithm_data, ALGORITHM)
-    return algorithm_schema.validate()
+    if algorithm_data:
+        algorithm_schema = Schema(algorithm_data, ALGORITHM)
+        return algorithm_schema.validate()
+    return []
 
 
 # ------- FILTERS -------
@@ -29,9 +30,10 @@ def filter_algorithms_urls(alorithms_urls: list):
 
 # ------- EXTRACTORS -------
 def extract_algorithm_data(response: Response):
-    data = extract(response)
-    if data:
-        return data
+    if response:
+        data = extract(response)
+        if data:
+            return data
     return []
 
 
@@ -80,12 +82,10 @@ async def run():
     session.default_headers = HEADERS
 
     log.info('Starting "Geeks for Geeks" algorithms extraction')
-    # algorithms_urls = await follow_algorithms_urls(session)
-    algorithms_urls = [
-        'https://www.geeksforgeeks.org/linear-search/',
-        # 'https://www.geeksforgeeks.org/selection-sort/?ref=gcse',
-    ]
+    algorithms_urls = await follow_algorithms_urls(session)
+    # algorithms_urls = [
+    #     'https://www.geeksforgeeks.org/random-number-generator-in-arbitrary-probability-distribution-fashion/',
+    # ]
     algorithms = await follow_algorithms(session, algorithms_urls)
 
-    METRIC.print_metric()
     return algorithms

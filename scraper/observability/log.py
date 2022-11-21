@@ -1,6 +1,7 @@
 from logging import DEBUG, Filter, Formatter, StreamHandler, getLogger
 
-from scraper.observability.settings import LOG_FORMAT
+from scraper.observability.settings import (SCRAPER_LOG_FORMAT,
+                                            SESSION_LOG_FORMAT)
 
 
 class AddScraperName(Filter):
@@ -10,10 +11,10 @@ class AddScraperName(Filter):
         return True
 
 
-def build_log(logger_name):
+def build_scraper_log(logger_name):
     log_handler = StreamHandler()
     log_handler.setLevel(DEBUG)
-    log_handler.setFormatter(Formatter(LOG_FORMAT))
+    log_handler.setFormatter(Formatter(SCRAPER_LOG_FORMAT))
 
     log = getLogger(logger_name)
     log.addFilter(AddScraperName())
@@ -21,4 +22,15 @@ def build_log(logger_name):
     return log
 
 
-scraper_log = build_log('scraper_log')
+def build_session_log(logger_name):
+    log_handler = StreamHandler()
+    log_handler.setLevel(DEBUG)
+    log_handler.setFormatter(Formatter(SESSION_LOG_FORMAT))
+
+    log = getLogger(logger_name)
+    log.addHandler(log_handler)
+    return log
+
+
+scraper_log = build_scraper_log('scraper_log')
+session_log = build_session_log('session_log')
