@@ -1,3 +1,5 @@
+import platform
+
 from logging import DEBUG, Filter, Formatter, StreamHandler, getLogger
 
 from scraper.observability.settings import (SCRAPER_LOG_FORMAT,
@@ -7,7 +9,8 @@ from scraper.observability.settings import (SCRAPER_LOG_FORMAT,
 class AddScraperName(Filter):
     def filter(self, record):
         if not hasattr(record, 'scraper'):
-            record.scraper = record.pathname.split('/')[-2]
+            split_char = '\\' if 'Windows' in platform.platform() else '/'
+            record.scraper = record.pathname.split(split_char)[-2]
         return True
 
 
