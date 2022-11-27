@@ -6,12 +6,14 @@ from requests_html import AsyncHTMLSession
 
 from scraper.observability.log import session_log as log
 from scraper.session.response import Response
-from scraper.session.settings import (MAX_REDIRECTS, REGEX,
-                                      REQUIRED_REQUEST_ARGS)
-from scraper.session.utils import (InvalidArgumentType, InvalidUrlException,
-                                   MissingArgumentException,
-                                   MissingMethodException,
-                                   UnsupportedMethodException)
+from scraper.session.settings import MAX_REDIRECTS, REGEX, REQUIRED_REQUEST_ARGS
+from scraper.session.utils import (
+    InvalidArgumentType,
+    InvalidUrlException,
+    MissingArgumentException,
+    MissingMethodException,
+    UnsupportedMethodException,
+)
 
 
 class HttpSession:
@@ -34,11 +36,11 @@ class HttpSession:
 
     @staticmethod
     def validate_url(url: str):
-        if not match(REGEX['url'], url):
+        if not match(REGEX["url"], url):
             raise InvalidUrlException
 
     def _validate_request_args(self, *args, **kwargs):
-        method = kwargs.get('method')
+        method = kwargs.get("method")
         if not method:
             raise MissingMethodException
         elif method not in REQUIRED_REQUEST_ARGS.keys():
@@ -48,7 +50,7 @@ class HttpSession:
                 if not kwargs.get(arg):
                     raise MissingArgumentException(arg)
 
-        self.validate_url(kwargs['url'])
+        self.validate_url(kwargs["url"])
 
         return kwargs
 
@@ -56,28 +58,20 @@ class HttpSession:
         if not headers:
             return self._default_headers
         else:
-            return {
-                **self._default_headers
-                ** headers
-            }
+            return {**self._default_headers**headers}
 
     async def request(self, *args, **kwargs):
         self._validate_request_args(*args, **kwargs)
-        callbacks = kwargs.pop('callbacks', None)
+        callbacks = kwargs.pop("callbacks", None)
 
         try:
             response = await self._session.request(
                 max_redirects=MAX_REDIRECTS,
-                **{
-                    **kwargs,
-                    'headers': self._make_headers(kwargs.get('headers', {}))
-                }
+                **{**kwargs, "headers": self._make_headers(kwargs.get("headers", {}))},
             )
             await asyncio.sleep(1)
         except ClientOSError:
-            log.error(
-                f'Request failed. URL: {kwargs.get("url")}'
-            )
+            log.error(f'Request failed. URL: {kwargs.get("url")}')
             return []
 
         response = await Response.create_response_object(response)
@@ -89,7 +83,7 @@ class HttpSession:
 
     async def js_script_request(self, *args, **kwargs):
         self._validate_request_args(*args, **kwargs)
-        script = kwargs.get('script')
+        script = kwargs.get("script")
 
         response = await self._js_session.request(kwargs)
         if script:

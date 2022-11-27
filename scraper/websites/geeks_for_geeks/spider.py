@@ -22,12 +22,7 @@ def parse_algorithm_schema(algorithm_data: dict):
 
 # ------- FILTERS -------
 def filter_algorithms_urls(alorithms_urls: list):
-    return list(
-        filter(
-            lambda href: ("geeksquiz" not in href),
-            alorithms_urls
-        )
-    )
+    return list(filter(lambda href: ("geeksquiz" not in href), alorithms_urls))
 
 
 # ------- EXTRACTORS -------
@@ -60,10 +55,7 @@ async def follow_algorithms(session: HttpSession, algorithms_urls: list):
             session.request(
                 method=Methods.GET.value,
                 url=url,
-                callbacks=[
-                    extract_algorithm_data,
-                    parse_algorithm_schema
-                ],
+                callbacks=[extract_algorithm_data, parse_algorithm_schema],
             )
             for url in algorithms_urls
         ]

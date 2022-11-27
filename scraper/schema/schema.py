@@ -7,6 +7,4 @@ class Schema:
         self.instance = instance
 
     def validate(self):
-        validate(
-            instance=self.instance, schema=self._schema
-        )
+        validate(instance=self.instance, schema=self._schema)
