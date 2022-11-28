@@ -39,13 +39,8 @@ REGEX = {
     "time": r"Time [Cc]omplexity[\s]?[:]+",
     "auxiliary": r"Auxiliary [Ss]pace[\s]?[:]+",
     "time_complexity": r"Time [Cc]omplexity[\s]?[:]+\s*.*?(O\s*\(.*?\))",
-    "auxiliary_space": r"Auxiliary [Ss]pace[\s]?[\[Cc\]omplexity]*[:]+\s*.*?(O\s*\(.*?\))",
+    "auxiliary_space": r"Auxiliary [Ss]pace[\s]?[\[Cc\]omplexity]*[:]+\s*.*?(O\s*\(.*?\))",  # noqa
 }
 
 
 LANGUAGES = ["C", "C#", "C++", "Python3", "Python", "PHP", "Java", "Javascript"]
-
-
-SYMBOL_TABLE = {
-    "\u221a": "√",
-}
