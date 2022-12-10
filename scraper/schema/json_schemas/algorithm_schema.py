@@ -19,5 +19,4 @@ algorithm_schema = {
             "properties": {"code": {"type": "string"}, "comments": {"type": "string"}},
         },
     },
-    "required": [],
 }
