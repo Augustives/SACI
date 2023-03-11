@@ -1,5 +1,5 @@
-algorithm_schema = {
-    "title": "Algorithm",
+scraper_output = {
+    "title": "Scraper Output",
     "description": "An extracted algorithm with its atributes",
     "type": "object",
     "properties": {
@@ -14,9 +14,15 @@ algorithm_schema = {
         },
         "url": {"description": "The URL of the given algorithm", "type": "string"},
         "algorithm": {
-            "description": "The algorithm code",
+            "description": "The algorithm implementations",
             "type": "object",
-            "properties": {"code": {"type": "string"}, "comments": {"type": "string"}},
+            "properties": {
+                "code": {"description": "The code of the algorithm", "type": "string"},
+                "comments": {
+                    "description": "The first few comments in the code",
+                    "type": "string",
+                },
+            },
         },
     },
 }

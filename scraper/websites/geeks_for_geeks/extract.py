@@ -77,16 +77,16 @@ def look_for_complexity(dom_reference):
     if not complexity:
         return {}
 
-    complexitys = {"time": extract_time_complexity(complexity.find_previous("p").text)}
+    time_complexity = extract_time_complexity(complexity.find_previous("p").text)
 
-    if not extract_auxiliary_space(complexity):
+    if not (space_complexity := extract_auxiliary_space(complexity)):
         auxiliary_space = complexity.find_next(string=compile(REGEX["auxiliary"]))
         if auxiliary_space:
-            complexitys["space"] = extract_auxiliary_space(
+            space_complexity = extract_auxiliary_space(
                 auxiliary_space.find_previous("p").text
             )
 
-    return complexitys
+    return {"time": time_complexity, "space": space_complexity}
 
 
 def look_for_names(dom_reference, response):

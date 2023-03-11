@@ -1,8 +1,7 @@
 from asyncio import gather
 
 from scraper.observability.log import scraper_log as log
-from scraper.schema.json_schemas import ALGORITHM
-from scraper.schema.schema import Schema
+from scraper.schema import Schema, SCRAPER_OUTPUT
 from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
 from scraper.session.utils import Methods
@@ -15,7 +14,7 @@ from scraper.observability.metric import calculate_completition_rate
 def parse_algorithm_schema(algorithm_data: dict):
     if algorithm_data:
         for algorithm in algorithm_data:
-            algorithm_schema = Schema(algorithm, ALGORITHM)
+            algorithm_schema = Schema(algorithm, SCRAPER_OUTPUT)
             algorithm_schema.validate()
     return algorithm_data
 

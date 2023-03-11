@@ -1,4 +1,5 @@
 from jsonschema import validate
+from scraper.schema.scraper_output_schema import scraper_output
 
 
 class Schema:
@@ -8,3 +9,6 @@ class Schema:
 
     def validate(self):
         validate(instance=self.instance, schema=self._schema)
+
+
+SCRAPER_OUTPUT = scraper_output
