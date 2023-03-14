@@ -1,31 +1,59 @@
 from base64 import b64encode
 from re import compile, search
 
+from bs4.element import NavigableString, Tag
+
 from scraper.observability.log import scraper_log as log
-from scraper.websites.geeks_for_geeks.settings import LANGUAGES, REGEX
+from scraper.session.response import Response
+from scraper.websites.geeks_for_geeks.settings import (
+    AUXILIARY_SPACE_REGEX,
+    COMMENTS_STARTING_STRINGS,
+    HTML_ELEMENTS_NAMES,
+    LANGUAGES,
+    TIME_COMPLEXITY_REGEX,
+)
 
 
 # ------- EXTRACT METHODS -------
-def extract_main_name(response):
+def extract_main_name(response: Response):
     name = response.soup.find("div", {"class": "article-title"})
     if name:
         return name.text
-    return ""
 
 
-def extract_time_complexity(complexity):
-    match = search(REGEX["time_complexity"], complexity)
-    if match:
-        return match.group(1)
+def extract_time_complexity_word(dom_reference: Tag) -> str:
+    for regex in TIME_COMPLEXITY_REGEX["word"]:
+        time_complexity_word = dom_reference.find_next(string=compile(regex))
+        if time_complexity_word:
+            return time_complexity_word
 
 
-def extract_auxiliary_space(complexity):
-    match = search(REGEX["auxiliary_space"], complexity)
-    if match:
-        return match.group(1)
+def extract_time_complexity(dom_reference: Tag) -> str:
+    if time_complexity_word := extract_time_complexity_word(dom_reference):
+        for regex in TIME_COMPLEXITY_REGEX["value"]:
+            for element in HTML_ELEMENTS_NAMES:
+                match = search(regex, time_complexity_word.find_previous(element).text)
+                if match:
+                    return match.group(1)
 
 
-def extract_code(code_table):
+def extract_auxiliary_space_word(dom_reference: Tag) -> NavigableString:
+    for regex in AUXILIARY_SPACE_REGEX["word"]:
+        auxiliary_space_word = dom_reference.find_next(string=compile(regex))
+        if auxiliary_space_word:
+            return auxiliary_space_word
+
+
+def extract_auxiliary_space(dom_reference: Tag) -> str:
+    if auxiliary_space_word := extract_auxiliary_space_word(dom_reference):
+        for regex in AUXILIARY_SPACE_REGEX["value"]:
+            for element in HTML_ELEMENTS_NAMES:
+                match = search(regex, auxiliary_space_word.find_previous(element).text)
+                if match:
+                    return match.group(1)
+
+
+def extract_code(code_table: Tag):
     code_text = ""
     code_lines = code_table.find_all("div", {"class": "line"})
     for line in code_lines:
@@ -36,10 +64,10 @@ def extract_code(code_table):
     return code_text
 
 
-def extract_code_comments(algorithm):
+def extract_code_comments(algorithm: str):
     algorithm_comments = ""
     for line in algorithm.splitlines():
-        if line[:2] in ["//", "# "]:
+        if line[:2] in COMMENTS_STARTING_STRINGS:
             algorithm_comments += line
             algorithm_comments += "\n"
         else:
@@ -47,9 +75,8 @@ def extract_code_comments(algorithm):
 
 
 # ------- SEARCH METHODS -------
-def look_for_codes(response):
-    codes = []
-    dom_references = []
+def look_for_codes(response: Response) -> tuple[list, list]:
+    codes, dom_references = [], []
 
     code_tabs = response.soup.find_all("div", {"class": "responsive-tabs"})
     for tab in code_tabs:
@@ -72,38 +99,21 @@ def look_for_codes(response):
     return codes, dom_references
 
 
-def look_for_complexity(dom_reference):
-    complexity = dom_reference.find_next(string=compile(REGEX["time"]))
-    if not complexity:
-        return {}
-
-    time_complexity = extract_time_complexity(complexity.find_previous("p").text)
-
-    if not (space_complexity := extract_auxiliary_space(complexity)):
-        auxiliary_space = complexity.find_next(string=compile(REGEX["auxiliary"]))
-        if auxiliary_space:
-            space_complexity = extract_auxiliary_space(
-                auxiliary_space.find_previous("p").text
-            )
-
+def look_for_complexity(dom_reference: Tag) -> dict:
+    time_complexity = extract_time_complexity(dom_reference)
+    space_complexity = extract_auxiliary_space(dom_reference)
     return {"time": time_complexity, "space": space_complexity}
 
 
-def look_for_names(dom_reference, response):
+def look_for_names(dom_reference: Tag, response: Response):
     name = dom_reference.find_previous("h2")
     if not name or "tabtitle" in name.get("class", ""):
         return extract_main_name(response)
     return name.text
 
 
-# ------- PARSE METHODS -------
-def parse_code(code_text):
-    # TODO Parse the code in an understandable way, remove comments, etc
-    return str(b64encode(code_text.encode()))
-
-
 # ------- EXTRACT -------
-def extract(response):
+def extract(response: Response) -> list:
     codes, dom_references = look_for_codes(response)
     if not codes:
         log.warning("Failed to find codes. " f"URL: {response.url}")

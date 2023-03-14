@@ -3,7 +3,10 @@ scraper_output = {
     "description": "An extracted algorithm with its atributes",
     "type": "object",
     "properties": {
-        "name": {"description": "The name of the algorithm", "type": "string"},
+        "name": {
+            "description": "The name of the algorithm",
+            "type": ["string", "null"],
+        },
         "time_complexity": {
             "description": "The time complexity of the algorithm",
             "type": ["string", "null"],

@@ -1,9 +1,10 @@
 import asyncio
 from re import match
 
-from aiohttp import ClientOSError, ClientSession
+from aiohttp import ClientSession
 from requests_html import AsyncHTMLSession
 
+from scraper.utils import retry, TooManyRetrysException
 from scraper.observability.log import session_log as log
 from scraper.session.response import Response
 from scraper.session.settings import MAX_REDIRECTS, REGEX, REQUIRED_REQUEST_ARGS
@@ -54,23 +55,28 @@ class HttpSession:
 
         return kwargs
 
-    def _make_headers(self, headers: dict):
+    def _make_headers(self, headers: dict) -> dict:
         if not headers:
             return self._default_headers
         else:
             return {**self._default_headers**headers}
 
-    async def request(self, *args, **kwargs):
+    @retry(times=3)
+    async def _http_request(self, *args, **kwargs):
+        response = await self._session.request(
+            max_redirects=MAX_REDIRECTS,
+            **{**kwargs, "headers": self._make_headers(kwargs.get("headers", {}))},
+        )
+        await asyncio.sleep(2)
+        return response
+
+    async def request(self, *args, **kwargs) -> Response:
         self._validate_request_args(*args, **kwargs)
         callbacks = kwargs.pop("callbacks", None)
 
         try:
-            response = await self._session.request(
-                max_redirects=MAX_REDIRECTS,
-                **{**kwargs, "headers": self._make_headers(kwargs.get("headers", {}))},
-            )
-            await asyncio.sleep(1)
-        except ClientOSError:
+            response = await self._http_request(*args, **kwargs)
+        except TooManyRetrysException:
             log.error(f'Request failed. URL: {kwargs.get("url")}')
             return []
 

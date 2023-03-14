@@ -1,16 +1,23 @@
 def calculate_completition_rate(algorithms):
-    time_complexity = 0
-    space_complexity = 0
+    total = len(algorithms)
+    time_complexity, space_complexity = 0, 0
+    urls = []
 
     for algorithm in algorithms:
-        if algorithm["time_complexity"]:
+        if not algorithm["time_complexity"]:
             time_complexity += 1
-        if algorithm["space_complexity"]:
+        if not algorithm["space_complexity"]:
             space_complexity += 1
+        if not algorithm["time_complexity"] or algorithm["space_complexity"]:
+            urls.append(algorithm["url"])
 
-    return print(
+    urls = list(set(urls))
+
+    print(
         "##### RESULTS #####\n"
-        f"Total={len(algorithms)}\n"
-        f"Time Complexity={time_complexity}\n"
-        f"Space Complexity={space_complexity}\n"
+        f"Total={total}\n"
+        f"Time Complexity={total - time_complexity}\n"
+        f"Space Complexity={total - space_complexity}\n"
     )
+
+    print("##### ALGORITHMS WITH PROBLEM #####\n" f"Total={len(urls)}\n" f"Urls={urls}")

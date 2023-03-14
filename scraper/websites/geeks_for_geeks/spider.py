@@ -1,13 +1,13 @@
 from asyncio import gather
 
 from scraper.observability.log import scraper_log as log
-from scraper.schema import Schema, SCRAPER_OUTPUT
+from scraper.observability.metric import calculate_completition_rate
+from scraper.schema import SCRAPER_OUTPUT, Schema
 from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
 from scraper.session.utils import Methods
 from scraper.websites.geeks_for_geeks.extract import extract
-from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_URL, HEADERS
-from scraper.observability.metric import calculate_completition_rate
+from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_LOCATION_URLS, HEADERS
 
 
 # ------- PARSERS -------
@@ -63,13 +63,20 @@ async def follow_algorithms(session: HttpSession, algorithms_urls: list):
 
 
 async def follow_algorithms_urls(session: HttpSession):
-    return await session.request(
-        method=Methods.GET.value,
-        url=ALGORITHMS_URL,
-        callbacks=[extract_algorithms_urls, filter_algorithms_urls],
+    algorithm_location_urls = await gather(
+        *[
+            session.request(
+                method=Methods.GET.value,
+                url=url,
+                callbacks=[extract_algorithms_urls, filter_algorithms_urls],
+            )
+            for url in ALGORITHMS_LOCATION_URLS
+        ]
     )
+    return sum(algorithm_location_urls, [])
 
 
+# ------- MAIN -------
 async def run():
     session = HttpSession()
     session.default_headers = HEADERS
@@ -77,7 +84,7 @@ async def run():
     log.info('Starting "Geeks for Geeks" algorithms extraction')
     algorithms_urls = await follow_algorithms_urls(session)
     # algorithms_urls = [
-    #     'https://www.geeksforgeeks.org/binary-search-preferred-ternary-search/',
+    #     "https://www.geeksforgeeks.org/z-algorithm-linear-time-pattern-searching-algorithm/",
     # ]
 
     algorithms = await follow_algorithms(session, algorithms_urls)
