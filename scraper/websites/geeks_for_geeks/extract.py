@@ -127,9 +127,9 @@ def extract(response: Response) -> list:
         return []
 
     names = [
+        extract_main_name(response),
         look_for_names(dom_reference, response) for dom_reference in dom_references[1:]
     ]
-    names.insert(0, extract_main_name(response))
 
     return [
         {
