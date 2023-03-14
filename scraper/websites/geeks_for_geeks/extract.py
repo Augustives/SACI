@@ -90,7 +90,7 @@ def look_for_codes(response: Response) -> tuple[list, list]:
                 code = extract_code(algorithm.find_next("td", {"class": "code"}))
 
                 languages_codes[language] = {
-                    "code": parse_code(code),
+                    "code": code,
                     "comments": extract_code_comments(code),
                 }
 
