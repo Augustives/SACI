@@ -126,8 +126,7 @@ def extract(response: Response) -> list:
         log.error("Failed to find complexitys. " f"URL: {response.url}")
         return []
 
-    names = [
-        extract_main_name(response),
+    names = [extract_main_name(response)] + [
         look_for_names(dom_reference, response) for dom_reference in dom_references[1:]
     ]
 
@@ -137,7 +136,7 @@ def extract(response: Response) -> list:
             "time_complexity": complexity.get("time"),
             "space_complexity": complexity.get("space"),
             "url": f"{response.url}",
-            "code": code,
+            "algorithm": code,
         }
         for name, complexity, code in zip(names, complexitys, codes)
     ]

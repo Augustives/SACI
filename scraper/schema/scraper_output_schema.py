@@ -20,11 +20,20 @@ scraper_output = {
             "description": "The algorithm implementations",
             "type": "object",
             "properties": {
-                "code": {"description": "The code of the algorithm", "type": "string"},
-                "comments": {
-                    "description": "The first few comments in the code",
-                    "type": "string",
-                },
+                "implementation": {
+                    "description": "The algorithm implementation in a determined language",
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "description": "The code of the algorithm",
+                            "type": "string",
+                        },
+                        "comments": {
+                            "description": "The first few comments in the code",
+                            "type": "string",
+                        },
+                    },
+                }
             },
         },
     },
