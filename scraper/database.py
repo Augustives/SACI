@@ -3,9 +3,9 @@ import os
 from pymongo import MongoClient
 from pymongo.database import Database
 from pymongo.collection import Collection
-from pymongo.operations import ReplaceOne
+from pymongo.operations import UpdateOne
 
-from scraper.settings import DATABASE_NAME, COLLECTION_NAME
+from scraper.settings import DATABASE_NAME
 
 
 class Database:
@@ -23,8 +23,14 @@ class Database:
 
         collection.bulk_write(
             [
-                ReplaceOne(
-                    replacement=item,
+                UpdateOne(
+                    update={
+                        "$set": {
+                            "name": item["name"],
+                            "time_complexity": item["time_complexity"],
+                            "space_complexity": item["space_complexity"],
+                        }
+                    },
                     filter={"url": item["url"], "algorithm": item["algorithm"]},
                     upsert=True,
                 )
