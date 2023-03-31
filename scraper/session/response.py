@@ -5,13 +5,13 @@ from lxml import etree
 
 class Response:
     def __init__(self, *args, **kwargs):
-        self.url = kwargs.get("url")
-        self.status = kwargs.get("status")
-        self.content = kwargs.get("content")
-        self.headers = kwargs.get("headers")
-        self.original_response = kwargs.get("original_response")
+        self.url: str = kwargs.get("url")
+        self.status: int = kwargs.get("status")
+        self.content: str = kwargs.get("content")
+        self.headers: dict = kwargs.get("headers")
+        self.original_response: ClientResponse = kwargs.get("original_response")
 
-        self.soup = kwargs.get("soup")
+        self.soup: BeautifulSoup = kwargs.get("soup")
 
     @classmethod
     async def create_response_object(cls, aiohttp_response: ClientResponse):

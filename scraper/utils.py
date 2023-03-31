@@ -1,3 +1,5 @@
+import json
+
 from scraper.settings import UNDESIRED_CHARACTERS
 
 
@@ -5,7 +7,15 @@ class TooManyRetrysException(Exception):
     pass
 
 
-def retry(times):
+class FailedExtraction(Exception):
+    pass
+
+
+def retry(
+    times: int,
+    raise_exception=True,
+    return_value=None,
+):
     def func_wrapper(f):
         async def wrapper(*args, **kwargs):
             for _ in range(times):
@@ -13,7 +23,11 @@ def retry(times):
                     return await f(*args, **kwargs)
                 except Exception:
                     pass
-            raise TooManyRetrysException()
+
+            if not raise_exception:
+                return return_value
+            else:
+                raise TooManyRetrysException
 
         return wrapper
 
@@ -24,3 +38,12 @@ def clean_text_characters(text: str) -> str:
     for character in UNDESIRED_CHARACTERS:
         text = text.replace(character, "")
     return text
+
+
+def remove_duplicates(data: list) -> list:
+    return list(set(data))
+
+
+def write_results_to_json(file_name: str, data: list):
+    with open(f"./{file_name}.json", "w") as file:
+        json.dump(data, file)

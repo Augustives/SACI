@@ -6,34 +6,38 @@ from scraper.schema import SCRAPER_OUTPUT, Schema
 from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
 from scraper.session.utils import Methods
+from scraper.utils import FailedExtraction, remove_duplicates, retry
 from scraper.websites.geeks_for_geeks.extract import extract
+from scraper.websites.geeks_for_geeks.login import follow_login
 from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_LOCATION_URLS, HEADERS
 
 
 # ------- PARSERS -------
-def parse_algorithm_schema(algorithm_data: dict):
-    if algorithm_data:
-        for algorithm in algorithm_data:
-            algorithm_schema = Schema(algorithm, SCRAPER_OUTPUT)
-            algorithm_schema.validate()
+def parse_algorithm_schema(algorithm_data: list) -> list:
+    for algorithm in algorithm_data:
+        algorithm_schema = Schema(algorithm, SCRAPER_OUTPUT)
+        algorithm_schema.validate()
+
     return algorithm_data
 
 
 # ------- FILTERS -------
-def filter_algorithms_urls(alorithms_urls: list):
+def filter_algorithms_urls(alorithms_urls: list) -> list:
     return list(filter(lambda href: ("geeksquiz" not in href), alorithms_urls))
 
 
 # ------- EXTRACTORS -------
-def extract_algorithm_data(response: Response):
+def extract_algorithm_data(response: Response) -> list:
     if response:
         data = extract(response)
         if data:
             return data
+        else:
+            raise FailedExtraction
     return []
 
 
-def extract_algorithms_urls(response: Response):
+def extract_algorithms_urls(response: Response) -> list:
     page_content = response.soup.find("div", {"class": "page_content"})
     return list(
         filter(
@@ -48,27 +52,33 @@ def extract_algorithms_urls(response: Response):
 
 
 # ------- FOLLOWS -------
-async def follow_algorithms(session: HttpSession, algorithms_urls: list):
+@retry(times=3, raise_exception=False, return_value=[])
+async def follow_algorithm(session: HttpSession, url: str):
+    return await session.request(
+        method=Methods.GET.value,
+        url=url,
+        callbacks=[extract_algorithm_data, parse_algorithm_schema],
+    )
+
+
+async def follow_algorithms(session: HttpSession, algorithms_urls: list) -> list:
     algorithms = await gather(
-        *[
-            session.request(
-                method=Methods.GET.value,
-                url=url,
-                callbacks=[extract_algorithm_data, parse_algorithm_schema],
-            )
-            for url in algorithms_urls
-        ]
+        *[follow_algorithm(session, url) for url in algorithms_urls]
     )
     return sum(algorithms, [])
 
 
-async def follow_algorithms_urls(session: HttpSession):
+async def follow_algorithms_urls(session: HttpSession) -> list:
     algorithm_location_urls = await gather(
         *[
             session.request(
                 method=Methods.GET.value,
                 url=url,
-                callbacks=[extract_algorithms_urls, filter_algorithms_urls],
+                callbacks=[
+                    extract_algorithms_urls,
+                    filter_algorithms_urls,
+                    remove_duplicates,
+                ],
             )
             for url in ALGORITHMS_LOCATION_URLS
         ]
@@ -77,16 +87,15 @@ async def follow_algorithms_urls(session: HttpSession):
 
 
 # ------- MAIN -------
-async def run():
+async def run() -> list:
     session = HttpSession()
     session.default_headers = HEADERS
 
     log.info('Starting "Geeks for Geeks" algorithms extraction')
-    algorithms_urls = await follow_algorithms_urls(session)
-    # algorithms_urls = [
-    #     "https://www.geeksforgeeks.org/z-algorithm-linear-time-pattern-searching-algorithm/",
-    # ]
+    # algorithms_urls = await follow_algorithms_urls(session)
+    algorithms_urls = []
 
+    await follow_login(session)
     algorithms = await follow_algorithms(session, algorithms_urls)
     calculate_completition_rate(algorithms)
 

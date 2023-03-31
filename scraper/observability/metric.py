@@ -1,17 +1,20 @@
+from scraper.utils import remove_duplicates
+
+
 def calculate_completition_rate(algorithms):
     total = len(algorithms)
     time_complexity, space_complexity = 0, 0
-    urls = []
+    urls_with_problem = []
 
     for algorithm in algorithms:
         if not algorithm["time_complexity"]:
             time_complexity += 1
         if not algorithm["space_complexity"]:
             space_complexity += 1
-        if not algorithm["time_complexity"] or algorithm["space_complexity"]:
-            urls.append(algorithm["url"])
+        if not algorithm["time_complexity"] or not algorithm["space_complexity"]:
+            urls_with_problem.append(algorithm["url"])
 
-    urls = list(set(urls))
+    urls_with_problem = remove_duplicates(urls_with_problem)
 
     print(
         "##### RESULTS #####\n"
@@ -20,4 +23,9 @@ def calculate_completition_rate(algorithms):
         f"Space Complexity={total - space_complexity}\n"
     )
 
-    print("##### ALGORITHMS WITH PROBLEM #####\n" f"Total={len(urls)}\n" f"Urls={urls}")
+    print(
+        "##### ALGORITHMS WITH PROBLEM #####\n"
+        f"Time Complexity={time_complexity}\n"
+        f"Space Complexity={space_complexity}\n"
+        f"Urls with problem:{urls_with_problem}\n"
+    )

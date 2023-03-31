@@ -114,6 +114,8 @@ def look_for_names(dom_reference: Tag, response: Response):
 
 # ------- EXTRACT -------
 def extract(response: Response) -> list:
+    print(f"RESPONSE URL: {response.url}")
+
     codes, dom_references = look_for_codes(response)
     if not codes:
         log.warning("Failed to find codes. " f"URL: {response.url}")
