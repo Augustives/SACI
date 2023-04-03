@@ -28,10 +28,16 @@ class Database:
                         "$set": {
                             "name": item["name"],
                             "time_complexity": item["time_complexity"],
+                            "trustable_time_complexity": item[
+                                "trustable_time_complexity"
+                            ],
                             "space_complexity": item["space_complexity"],
+                            "trustable_space_complexity": item[
+                                "trustable_space_complexity"
+                            ],
                         }
                     },
-                    filter={"url": item["url"], "algorithm": item["algorithm"]},
+                    filter={"url": item["url"], "codes": item["codes"]},
                     upsert=True,
                 )
                 for item in data

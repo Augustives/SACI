@@ -1,24 +1,21 @@
 from asyncio import gather
 
+from scraper.exceptions import FailedExtraction
 from scraper.observability.log import scraper_log as log
-from scraper.observability.metric import calculate_completition_rate
-from scraper.schema import SCRAPER_OUTPUT, Schema
+from scraper.observability.metric import make_results_analysis
+from scraper.schema import ScrapedAlgorithm
 from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
 from scraper.session.utils import Methods
-from scraper.utils import FailedExtraction, remove_duplicates, retry
+from scraper.utils import remove_duplicates, retry
 from scraper.websites.geeks_for_geeks.extract import extract
 from scraper.websites.geeks_for_geeks.login import follow_login
 from scraper.websites.geeks_for_geeks.settings import ALGORITHMS_LOCATION_URLS, HEADERS
 
 
 # ------- PARSERS -------
-def parse_algorithm_schema(algorithm_data: list) -> list:
-    for algorithm in algorithm_data:
-        algorithm_schema = Schema(algorithm, SCRAPER_OUTPUT)
-        algorithm_schema.validate()
-
-    return algorithm_data
+def parse_algorithm_schema(algorithms_data: list) -> list:
+    return [ScrapedAlgorithm(**algorithm) for algorithm in algorithms_data]
 
 
 # ------- FILTERS -------
@@ -92,11 +89,11 @@ async def run() -> list:
     session.default_headers = HEADERS
 
     log.info('Starting "Geeks for Geeks" algorithms extraction')
-    # algorithms_urls = await follow_algorithms_urls(session)
-    algorithms_urls = []
+    algorithms_urls = await follow_algorithms_urls(session)
+    # algorithms_urls = ["https://www.geeksforgeeks.org/interval-tree/"]
 
     await follow_login(session)
     algorithms = await follow_algorithms(session, algorithms_urls)
-    calculate_completition_rate(algorithms)
+    make_results_analysis(algorithms)
 
     return algorithms

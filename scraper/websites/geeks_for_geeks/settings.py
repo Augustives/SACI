@@ -41,20 +41,34 @@ ALGORITHM_LINKS_JS_SCRIPT = """
 """
 
 TIME_COMPLEXITY_REGEX = {
-    "word": [r"[Tt]ime [Cc]omplexity[\s]?[:]?"],
-    "value": [
-        r"[Tt]ime [Cc]omplexity[\s]?[:]+\s*.*?(O\s*\(.*?\))",
-        r"[Tt]ime [Cc]omplexity[\s]?[:]+\s*.*?time complexity.*?\sis\s(\w*)",
-        r"[Tt]ime [Cc]omplexity.*?is\s(.*?)\s",
+    "word": [
+        r"[Tt]ime [Cc]omplexit\w*[\s]?:|[Tt]ime [Cc]omplexit\w*[\s]?",
     ],
+    "value": [
+        r"[Tt]ime [Cc]omplexit\w*\s?:.*?(O\s*\(.*?\))",
+        r"[Tt]ime [Cc]omplexit\w*\s?.*?(O\s*\(.*?\))",
+        r"[Tt]ime [Cc]omplexit\w*\s.*?\sis\s.*?(O\s*\(.*?\))",
+        r"[Tt]ime [Cc]omplexit\w*\s?:?.*?\sis\s(\w*)",
+    ],
+    "fallback": r"O\s*\(.*?\)",
 }
 
 AUXILIARY_SPACE_REGEX = {
-    "word": [r"[Aa]uxiliary [Ss]pace[\s]?[:]?", r"[Ss]pace [Cc]omplexity[\s]?[:]?"],
-    "value": [
-        r"[Aa]uxiliary [Ss]pace[\s]?[\[Cc\]omplexity]*[:]+\s*.*?(O\s*\(.*?\))",
-        r"[Ss]pace [Cc]omplexity[\s]?[\[Cc\]omplexity]*[:]+\s*.*?(O\s*\(.*?\))",
+    "word": [
+        r"[Aa]uxiliary [Ss]pace\s?:|[Aa]uxiliary [Ss]pace\s?",
+        r"[Ss]pace [Cc]omplexit\w*\s?:|[Ss]pace [Cc]omplexit\w*\s?",
     ],
+    "value": [
+        r"[Aa]uxiliary [Ss]pace\s?[\[Cc\]omplexit\w*]?:.*?(O\s*\(.*?\))",
+        r"[Aa]uxiliary [Ss]pace\s?[\[Cc\]omplexit\w*]?.*?(O\s*\(.*?\))",
+        r"[Ss]pace [Cc]omplexit\w*\s?:.*?(O\s*\(.*?\))",
+        r"[Ss]pace [Cc]omplexit\w*\s?.*?(O\s*\(.*?\))",
+        r"[Aa]uxiliary [Ss]pace\s?[\[Cc\]omplexit\w*]?.*?\sis\s.*?(O\s*\(.*?\))",
+        r"[Ss]pace [Cc]omplexit\w*\s.*?\sis\s.*?(O\s*\(.*?\))",
+        r"[Aa]uxiliary [Ss]pace\w*\s?:?.*?\sis\s(\w*)",
+        r"[Ss]pace [Cc]omplexit\w*\s?:?.*?\sis\s(\w*)",
+    ],
+    "fallback": r"O\s*\(.*?\)",
 }
 
 HTML_ELEMENTS_NAMES = ["p", "li", "ul", "i"]

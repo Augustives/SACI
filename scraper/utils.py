@@ -1,14 +1,8 @@
 import json
 
+from scraper.exceptions import TooManyRetrysException
+from scraper.observability.log import scraper_log as log
 from scraper.settings import UNDESIRED_CHARACTERS
-
-
-class TooManyRetrysException(Exception):
-    pass
-
-
-class FailedExtraction(Exception):
-    pass
 
 
 def retry(

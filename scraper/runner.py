@@ -11,6 +11,6 @@ async def run_scrapers():
     for name, data in zip(scrapers.keys(), scrapers_results):
         if USE_MONGO_DATABASE:
             database = Database()
-            database.update_database(name, data)
+            database.update_database(name, [result.dict() for result in data])
         else:
-            write_results_to_json(name, data)
+            write_results_to_json(name, [result.dict() for result in data])

@@ -1,10 +1,13 @@
-from base64 import b64encode
-from re import compile, search
+from re import compile, findall, search
 
 from bs4.element import NavigableString, Tag
 
 from scraper.observability.log import scraper_log as log
 from scraper.session.response import Response
+from scraper.exceptions import (
+    FailedSpaceComplexityExtraction,
+    FailedTimeComplexityExtraction,
+)
 from scraper.websites.geeks_for_geeks.settings import (
     AUXILIARY_SPACE_REGEX,
     COMMENTS_STARTING_STRINGS,
@@ -15,13 +18,30 @@ from scraper.websites.geeks_for_geeks.settings import (
 
 
 # ------- EXTRACT METHODS -------
+def extract_complexitys_fallback(dom_reference: Tag) -> tuple[str, str]:
+    time_complexity, space_complexity = None, None
+
+    regex = TIME_COMPLEXITY_REGEX["fallback"]
+    complexity_search_references = dom_reference.find_all_next(string=compile(regex))
+
+    if len(complexity_search_references) >= 2:
+        time_complexity = search(regex, complexity_search_references[0]).group()
+        space_complexity = search(regex, complexity_search_references[1]).group()
+    elif len(complexity_search_references) == 1:
+        matches = findall(regex, complexity_search_references[0])
+        time_complexity = matches[0] if len(matches) >= 1 else None
+        space_complexity = matches[1] if len(matches) >= 2 else None
+
+    return time_complexity, space_complexity
+
+
 def extract_main_name(response: Response):
     name = response.soup.find("div", {"class": "article-title"})
     if name:
         return name.text
 
 
-def extract_time_complexity_word(dom_reference: Tag) -> str:
+def extract_time_complexity_word(dom_reference: Tag) -> NavigableString:
     for regex in TIME_COMPLEXITY_REGEX["word"]:
         time_complexity_word = dom_reference.find_next(string=compile(regex))
         if time_complexity_word:
@@ -32,9 +52,12 @@ def extract_time_complexity(dom_reference: Tag) -> str:
     if time_complexity_word := extract_time_complexity_word(dom_reference):
         for regex in TIME_COMPLEXITY_REGEX["value"]:
             for element in HTML_ELEMENTS_NAMES:
-                match = search(regex, time_complexity_word.find_previous(element).text)
-                if match:
-                    return match.group(1)
+                regex_match = search(
+                    regex, time_complexity_word.find_previous(element).text
+                )
+                if regex_match:
+                    return regex_match.group(1)
+    raise FailedTimeComplexityExtraction
 
 
 def extract_auxiliary_space_word(dom_reference: Tag) -> NavigableString:
@@ -48,9 +71,12 @@ def extract_auxiliary_space(dom_reference: Tag) -> str:
     if auxiliary_space_word := extract_auxiliary_space_word(dom_reference):
         for regex in AUXILIARY_SPACE_REGEX["value"]:
             for element in HTML_ELEMENTS_NAMES:
-                match = search(regex, auxiliary_space_word.find_previous(element).text)
-                if match:
-                    return match.group(1)
+                regex_match = search(
+                    regex, auxiliary_space_word.find_previous(element).text
+                )
+                if regex_match:
+                    return regex_match.group(1)
+    raise FailedSpaceComplexityExtraction
 
 
 def extract_code(code_table: Tag):
@@ -100,9 +126,26 @@ def look_for_codes(response: Response) -> tuple[list, list]:
 
 
 def look_for_complexity(dom_reference: Tag) -> dict:
-    time_complexity = extract_time_complexity(dom_reference)
-    space_complexity = extract_auxiliary_space(dom_reference)
-    return {"time": time_complexity, "space": space_complexity}
+    trustable_time_complexity, trustable_space_complexity = True, True
+
+    try:
+        time_complexity = extract_time_complexity(dom_reference)
+    except FailedTimeComplexityExtraction:
+        trustable_time_complexity = False
+        time_complexity, _ = extract_complexitys_fallback(dom_reference)
+
+    try:
+        space_complexity = extract_auxiliary_space(dom_reference)
+    except FailedSpaceComplexityExtraction:
+        trustable_space_complexity = False
+        _, space_complexity = extract_complexitys_fallback(dom_reference)
+
+    return {
+        "time_complexity": time_complexity,
+        "trustable_time_complexity": trustable_time_complexity,
+        "space_complexity": space_complexity,
+        "trustable_space_complexity": trustable_space_complexity,
+    }
 
 
 def look_for_names(dom_reference: Tag, response: Response):
@@ -114,8 +157,6 @@ def look_for_names(dom_reference: Tag, response: Response):
 
 # ------- EXTRACT -------
 def extract(response: Response) -> list:
-    print(f"RESPONSE URL: {response.url}")
-
     codes, dom_references = look_for_codes(response)
     if not codes:
         log.warning("Failed to find codes. " f"URL: {response.url}")
@@ -135,10 +176,12 @@ def extract(response: Response) -> list:
     return [
         {
             "name": name,
-            "time_complexity": complexity.get("time"),
-            "space_complexity": complexity.get("space"),
+            "time_complexity": complexity.get("time_complexity"),
+            "trustable_time_complexity": complexity.get("trustable_time_complexity"),
+            "space_complexity": complexity.get("space_complexity"),
+            "trustable_space_complexity": complexity.get("trustable_space_complexity"),
             "url": f"{response.url}",
-            "algorithm": code,
+            "codes": code,
         }
         for name, complexity, code in zip(names, complexitys, codes)
     ]
