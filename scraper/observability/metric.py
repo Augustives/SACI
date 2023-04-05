@@ -45,8 +45,8 @@ def calculate_completition_rate(data: list[ScrapedAlgorithm]) -> dict:
 
     return {
         "Total Algorithms": total,
-        "Time Complexity Extracted": f"{total - time_complexity} extracted - {(time_complexity/total)*100}%",
-        "Space Complexity Extraced": f"{total - space_complexity} extracted - {(space_complexity/total)*100}%",
+        "Time Complexity Extracted": f"{total - time_complexity} extracted - {100 - (time_complexity/total)*100}%",
+        "Space Complexity Extraced": f"{total - space_complexity} extracted - {100 - (space_complexity/total)*100}%",
         "URLs with problem": urls_with_problem,
     }
 

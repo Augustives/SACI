@@ -36,6 +36,3 @@ class ScrapedAlgorithm(BaseModel):
     codes: dict[str, ScrapedCode] = Field(
         default=dict(), description="The algorithm implementations"
     )
-
-    def to_representation(self):
-        ...
