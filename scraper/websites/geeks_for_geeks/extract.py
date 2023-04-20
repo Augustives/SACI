@@ -1,13 +1,13 @@
-from re import compile, findall, search
+from re import IGNORECASE, compile, search
 
-from bs4.element import NavigableString, Tag
+from bs4.element import NavigableString, ResultSet, Tag
 
-from scraper.observability.log import scraper_log as log
-from scraper.session.response import Response
 from scraper.exceptions import (
     FailedSpaceComplexityExtraction,
     FailedTimeComplexityExtraction,
 )
+from scraper.observability.log import scraper_log as log
+from scraper.session.response import Response
 from scraper.websites.geeks_for_geeks.settings import (
     AUXILIARY_SPACE_REGEX,
     COMMENTS_STARTING_STRINGS,
@@ -17,24 +17,46 @@ from scraper.websites.geeks_for_geeks.settings import (
 )
 
 
-# ------- EXTRACT METHODS -------
+# ------- FALLBACK METHODS -------
+def time_complexity_fallback(reference_search_results: list[Tag]) -> str:
+    for result in reference_search_results:
+        if search(r"time", result, flags=IGNORECASE):
+            time_complexity = search(TIME_COMPLEXITY_REGEX["fallback"], result).group()
+            if time_complexity:
+                return time_complexity
+
+
+def space_complexity_fallback(reference_search_results: list[Tag]) -> str:
+    for result in reference_search_results:
+        if search(r"auxiliary|space", result, flags=IGNORECASE):
+            auxiliary_space = search(TIME_COMPLEXITY_REGEX["fallback"], result).group()
+            if auxiliary_space:
+                return auxiliary_space
+
+
 def extract_complexitys_fallback(dom_reference: Tag) -> tuple[str, str]:
-    time_complexity, space_complexity = None, None
+    next_reference_search_results = [
+        p.text
+        for p in dom_reference.find_all_next("p")
+        if search(TIME_COMPLEXITY_REGEX["fallback"], p.text)
+    ]
+    previous_reference_search_results = [
+        p.text
+        for p in dom_reference.find_all_previous("p")
+        if search(TIME_COMPLEXITY_REGEX["fallback"], p.text)
+    ]
 
-    regex = TIME_COMPLEXITY_REGEX["fallback"]
-    complexity_search_references = dom_reference.find_all_next(string=compile(regex))
-
-    if len(complexity_search_references) >= 2:
-        time_complexity = search(regex, complexity_search_references[0]).group()
-        space_complexity = search(regex, complexity_search_references[1]).group()
-    elif len(complexity_search_references) == 1:
-        matches = findall(regex, complexity_search_references[0])
-        time_complexity = matches[0] if len(matches) >= 1 else None
-        space_complexity = matches[1] if len(matches) >= 2 else None
+    time_complexity = time_complexity_fallback(
+        next_reference_search_results
+    ) or time_complexity_fallback(previous_reference_search_results)
+    space_complexity = space_complexity_fallback(
+        next_reference_search_results
+    ) or space_complexity_fallback(previous_reference_search_results)
 
     return time_complexity, space_complexity
 
 
+# ------- EXTRACT METHODS -------
 def extract_main_name(response: Response):
     name = response.soup.find("div", {"class": "article-title"})
     if name:

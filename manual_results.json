@@ -1,0 +1,2637 @@
+[
+    {
+        "url": "https://www.geeksforgeeks.org/check-given-four-points-form-square/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/",
+        "time_complexity": "O(2n)    ",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/",
+        "time_complexity": "O(n3)",
+        "space_complexity": "O(n2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/",
+        "time_complexity": "O(n2)",
+        "space_complexity": "O(n2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/",
+        "time_complexity": "O(n2)",
+        "space_complexity": "O(n2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/",
+        "time_complexity": "O(n3)",
+        "space_complexity": "O(n2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/",
+        "time_complexity": "O(2^n)",
+        "space_complexity": "O(n^2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/",
+        "time_complexity": "O(n^2)",
+        "space_complexity": "O(n^2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/",
+        "time_complexity": "O(n2)",
+        "space_complexity": "O(n2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/",
+        "time_complexity": "O(n^2)",
+        "space_complexity": "O(n^2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/z-algorithm-linear-time-pattern-searching-algorithm/",
+        "time_complexity": "O(m+n)",
+        "space_complexity": "O(m+n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lower-bound-on-comparison-based-sorting-algorithms/",
+        "time_complexity": "O(n*log2n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/closest-pair-of-points-onlogn-implementation/",
+        "time_complexity": "O(nLogn)",
+        "space_complexity": "O(log n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/multiply-two-numbers-without-using-multiply-division-bitwise-operators-and-no-loops/",
+        "time_complexity": "O(y)",
+        "space_complexity": "O(y)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/multiply-two-numbers-without-using-multiply-division-bitwise-operators-and-no-loops/",
+        "time_complexity": "O(num)",
+        "space_complexity": "O(num)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/convex-hull-using-jarvis-algorithm-or-wrapping/",
+        "time_complexity": "O(m * n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/",
+        "time_complexity": "O(2N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/",
+        "time_complexity": "O(N * W)",
+        "space_complexity": "O(N * W) + O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/",
+        "time_complexity": "O(N * W)",
+        "space_complexity": "O(N * W)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/",
+        "time_complexity": "O(N * W)",
+        "space_complexity": "O(2 * W)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/",
+        "time_complexity": "O(N * W)",
+        "space_complexity": "O(W)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/pascal-triangle/",
+        "time_complexity": "O(n^3)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/pascal-triangle/",
+        "time_complexity": "O(n^2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/pascal-triangle/",
+        "time_complexity": "O(n2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/randomized-algorithms-set-3-12-approximate-median/",
+        "time_complexity": "O (k log k)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/",
+        "time_complexity": "exponential",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/",
+        "time_complexity": "O(N3 )",
+        "space_complexity": "O(N2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/",
+        "time_complexity": "O(N3 )",
+        "space_complexity": "O(N2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/",
+        "time_complexity": "O(nlogn)",
+        "space_complexity": "- O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/optimal-substructure-property-in-dynamic-programming-dp-2/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/square-root-of-a-perfect-square/",
+        "time_complexity": "O(n1/2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/square-root-of-a-perfect-square/",
+        "time_complexity": "O(n1/2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-add-two-polynomials/",
+        "time_complexity": "O(m+n)",
+        "space_complexity": "O(max(m, n))"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-add-two-polynomials/",
+        "time_complexity": "O(m + n)",
+        "space_complexity": "O(m + n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-add-two-polynomials/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/n-queen-problem-using-branch-and-bound/",
+        "time_complexity": "O(1)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/coin-change-dp-7/",
+        "time_complexity": "O(2sum)",
+        "space_complexity": "O(target)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/coin-change-dp-7/",
+        "time_complexity": "O(M*sum)",
+        "space_complexity": "O(M*sum)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/coin-change-dp-7/",
+        "time_complexity": "O(N*sum)",
+        "space_complexity": "O(sum)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/coin-change-dp-7/",
+        "time_complexity": "O(N*sum)",
+        "space_complexity": "O(N*sum)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implementation-of-0-1-knapsack-using-branch-and-bound/",
+        "time_complexity": "O(n^2)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/",
+        "time_complexity": "O(log5n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/",
+        "time_complexity": "O(log5n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/",
+        "time_complexity": "O(2N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/",
+        "time_complexity": "O(N^2)",
+        "space_complexity": "O(N^2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/8-puzzle-problem-using-branch-and-bound/",
+        "time_complexity": "O(N^2 * N!)",
+        "space_complexity": "O(N^2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/average-of-a-stream-of-numbers/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/job-assignment-problem-using-branch-and-bound/",
+        "time_complexity": "O(M*N)",
+        "space_complexity": "O(M+N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/swap-two-nibbles-byte/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/swap-two-nibbles-byte/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/",
+        "time_complexity": "O(n + l + z)",
+        "space_complexity": "O(l * q)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/swap-bits-in-a-given-number/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/swap-bits-in-a-given-number/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/swap-bits-in-a-given-number/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/",
+        "time_complexity": "O(n2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/",
+        "time_complexity": "O(N*log(N))",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/",
+        "time_complexity": "O(N * log N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(maxDepartureTime)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "Exponential",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "O(Logn)",
+        "space_complexity": "O(Logn)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "O(Log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "O(logn)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/overlapping-subproblems-property-in-dynamic-programming-dp-1/",
+        "time_complexity": "O(2N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/overlapping-subproblems-property-in-dynamic-programming-dp-1/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/overlapping-subproblems-property-in-dynamic-programming-dp-1/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(M)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/next-higher-number-with-same-number-of-set-bits/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/rotate-bits-of-an-integer/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/rotate-bits-of-an-integer/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sudoku-backtracking-7/",
+        "time_complexity": "O(9(N*N))",
+        "space_complexity": "O(N*N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sudoku-backtracking-7/",
+        "time_complexity": "O(9(N*N))",
+        "space_complexity": "O(N*N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sudoku-backtracking-7/",
+        "time_complexity": "O(9(N*N))",
+        "space_complexity": "O(N*N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sudoku-backtracking-7/",
+        "time_complexity": "O(9^(n*n))",
+        "space_complexity": "O(n*n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/closest-pair-of-points-using-divide-and-conquer-algorithm/",
+        "time_complexity": "T(n x Logn x Logn)",
+        "space_complexity": "O(log n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/hamiltonian-cycle/",
+        "time_complexity": "O(N!)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/randomized-algorithms-set-1-introduction-and-analysis/",
+        "time_complexity": "O(n Log n)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/m-coloring-problem/",
+        "time_complexity": "O(mV)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/m-coloring-problem/",
+        "time_complexity": "O(mV)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindrome-larger-than-this-number/",
+        "time_complexity": "O(num * |num|)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindrome-larger-than-this-number/",
+        "time_complexity": "O(num)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/pattern-searching-using-trie-suffixes/",
+        "time_complexity": "O(m+k)",
+        "space_complexity": "O(n * MAX_CHAR)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-an-efficient-method-to-check-if-a-number-is-multiple-of-3/",
+        "time_complexity": "O(logn)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-an-efficient-method-to-check-if-a-number-is-multiple-of-3/",
+        "time_complexity": "O(nlogn)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-an-efficient-method-to-check-if-a-number-is-multiple-of-3/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-an-efficient-method-to-check-if-a-number-is-multiple-of-3/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/subset-sum-problem/",
+        "time_complexity": "O(2^(n/2))",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/merge-sort/",
+        "time_complexity": "O(N log(N))",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/",
+        "time_complexity": "O(n * log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/",
+        "time_complexity": "O(n * log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/turn-off-the-rightmost-set-bit/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/turn-off-the-rightmost-set-bit/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/how-to-check-if-a-given-point-lies-inside-a-polygon/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/the-knights-tour-problem/",
+        "time_complexity": "O(8N^2)",
+        "space_complexity": "O(N2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sieve-of-eratosthenes/",
+        "time_complexity": "O(n*log(log(n)))",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sieve-of-eratosthenes/",
+        "time_complexity": "O(n*log(log(n)))",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/expected-number-of-trials-before-success/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/reservoir-sampling/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(k)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/strassens-matrix-multiplication/",
+        "time_complexity": "O(N3)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/strassens-matrix-multiplication/",
+        "time_complexity": "O(N2)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/strassens-matrix-multiplication/",
+        "time_complexity": "O(N2)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/0-1-knapsack-using-branch-and-bound/",
+        "time_complexity": "O(N)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/0-1-knapsack-using-branch-and-bound/",
+        "time_complexity": "O(N)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/randomized-algorithms-set-2-classification-and-applications/",
+        "time_complexity": "O(1)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/randomized-algorithms-set-2-classification-and-applications/",
+        "time_complexity": "O(n Log n)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/min-cost-path-dp-6/",
+        "time_complexity": "O((M * N)3)",
+        "space_complexity": "O(M + N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/min-cost-path-dp-6/",
+        "time_complexity": "O(M * N)",
+        "space_complexity": "O(M * N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/min-cost-path-dp-6/",
+        "time_complexity": "O(N * M)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/min-cost-path-dp-6/",
+        "time_complexity": "O(V + E * logV)",
+        "space_complexity": "O(N * M)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/given-a-set-of-line-segments-find-if-any-two-segments-intersect/",
+        "time_complexity": "O(nLogn)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/rat-in-a-maze/",
+        "time_complexity": "O(2^(n^2))",
+        "space_complexity": "O(n^2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-program-to-add-two-numbers-in-base-14/",
+        "time_complexity": "O(|num1|)",
+        "space_complexity": "O(|num1|)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/",
+        "time_complexity": "O(N!)",
+        "space_complexity": "O(N2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/",
+        "time_complexity": "O(N!)",
+        "space_complexity": "O(N2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/",
+        "time_complexity": "O(N!)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/traveling-salesman-problem-using-branch-and-bound-2/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/",
+        "time_complexity": "O(N * N!)",
+        "space_complexity": "O(R - L)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/",
+        "time_complexity": "O(N * N!)",
+        "space_complexity": "O(|S|)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/",
+        "time_complexity": "O(n!)",
+        "space_complexity": "O(n*n!)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/",
+        "time_complexity": "O(N*N!)",
+        "space_complexity": "O(|S|)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(log n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(log |n|)",
+        "space_complexity": "O(log |n|)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/rabin-karp-algorithm-for-pattern-searching/",
+        "time_complexity": "O(n+m)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/multiply-two-polynomials-2/",
+        "time_complexity": "O(mn)",
+        "space_complexity": "O(m + n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/detect-if-two-integers-have-opposite-signs/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/detect-if-two-integers-have-opposite-signs/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/detect-if-two-integers-have-opposite-signs/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/detect-if-two-integers-have-opposite-signs/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/",
+        "time_complexity": "O(N * log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/job-sequencing-problem/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/job-sequencing-problem/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/little-and-big-endian-mystery/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/little-and-big-endian-mystery/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/little-and-big-endian-mystery/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/",
+        "time_complexity": "O(n * 2n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/",
+        "time_complexity": "O(2n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/",
+        "time_complexity": "O(m * n)",
+        "space_complexity": "O(m * n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/diameter-of-a-binary-tree/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/diameter-of-a-binary-tree/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/diameter-of-a-binary-tree/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(h)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-sum-rectangle-in-a-2d-matrix-dp-27/",
+        "time_complexity": "O(c*c*r)",
+        "space_complexity": "O(r)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-tree-to-binary-search-tree-conversion/",
+        "time_complexity": " O(nlogn)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/interesting-method-generate-binary-numbers-1-n/",
+        "time_complexity": "O(N*logN)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/interesting-method-generate-binary-numbers-1-n/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/floor-and-ceil-from-a-bst/",
+        "time_complexity": "O(log N)",
+        "space_complexity": "O(log N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/floor-and-ceil-from-a-bst/",
+        "time_complexity": "O(log N)",
+        "space_complexity": "O(log N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/floor-and-ceil-from-a-bst/",
+        "time_complexity": "O(log N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-tree-application-3-longest-repeated-substring/",
+        "time_complexity": "O(N)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-and-insertion-in-a-doubly-linked-list/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-and-insertion-in-a-doubly-linked-list/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-and-insertion-in-a-doubly-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-and-insertion-in-a-doubly-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-and-insertion-in-a-doubly-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays/",
+        "time_complexity": "O(logn)",
+        "space_complexity": "O(logn)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays/",
+        "time_complexity": "O(nlogn)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-maximum-depth-or-height-of-a-tree/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-maximum-depth-or-height-of-a-tree/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-maximum-depth-or-height-of-a-tree/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-maximum-depth-or-height-of-a-tree/",
+        "time_complexity": "(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/split-a-circular-linked-list-into-two-halves/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/",
+        "time_complexity": "O(N * K)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(K)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(K)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(K)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/in-place-conversion-of-sorted-dll-to-balanced-bst/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/in-place-conversion-of-sorted-dll-to-balanced-bst/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/insert-operation-in-b-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-if-a-binary-tree-is-subtree-of-another-binary-tree/",
+        "time_complexity": "O(M*N)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/memory-efficient-doubly-linked-list/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/merge-one-array-of-size-n-into-another-one-of-size-mn/",
+        "time_complexity": "O(m+n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-common-element-rows-row-wise-sorted-matrix/",
+        "time_complexity": "O(M x N)",
+        "space_complexity": "O(M)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-common-element-rows-row-wise-sorted-matrix/",
+        "time_complexity": "O(n*m)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-singly-linked-list-insertion/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-singly-linked-list-insertion/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-singly-linked-list-insertion/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-singly-linked-list-insertion/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-singly-linked-list-insertion/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/merge-sort-for-doubly-linked-list/",
+        "time_complexity": "Θ(nLogn)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/efficiently-implement-k-queues-single-array/",
+        "time_complexity": "O(1)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/searching-in-splay-tree/",
+        "time_complexity": "O(Logn)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-and-insertion-in-k-dimensional-tree/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/ternary-search-tree/",
+        "time_complexity": "",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lru-cache-implementation/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lru-cache-implementation/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/convert-infix-expression-to-postfix-expression/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/vertical-order-traversal-of-binary-tree-using-map/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/vertical-order-traversal-of-binary-tree-using-map/",
+        "time_complexity": "O(N Log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/vertical-order-traversal-of-binary-tree-using-map/",
+        "time_complexity": "O(N Log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/vertical-order-traversal-of-binary-tree-using-map/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-unique-rows/",
+        "time_complexity": "O( ROW^2 x COL )",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-unique-rows/",
+        "time_complexity": "O( ROW x COL + ROW x log( ROW ) )",
+        "space_complexity": "O( ROW )"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-unique-rows/",
+        "time_complexity": "O( ROW x COL )",
+        "space_complexity": "O( ROW x COL )"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-unique-rows/",
+        "time_complexity": "O( ROW x COL )",
+        "space_complexity": "O( ROW )"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/deletion-in-k-dimensional-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/design-a-stack-with-find-middle-operation/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/design-a-stack-with-find-middle-operation/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/traversal-of-circular-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/traversal-of-circular-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/traversal-of-circular-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sorted-insert-for-circular-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sorted-insert-for-circular-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-nodes-at-k-distance-from-root/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(height of the binary tree)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-nodes-at-k-distance-from-root/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binomial-heap-2/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-insert-and-delete-in-an-unsorted-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-insert-and-delete-in-an-unsorted-array/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-insert-and-delete-in-an-unsorted-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-insert-and-delete-in-an-unsorted-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/the-stock-span-problem/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/the-stock-span-problem/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/the-stock-span-problem/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/the-stock-span-problem/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/ukkonens-suffix-tree-construction-part-6/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/segment-tree-range-minimum-query/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/centroid-decomposition-of-tree/",
+        "time_complexity": "O(N2)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
+        "time_complexity": "O(n)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
+        "time_complexity": "O(n)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/create-a-matrix-with-alternating-rectangles-of-0-and-x/",
+        "time_complexity": "O(mn)",
+        "space_complexity": "O(mn)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-heap/",
+        "time_complexity": "O(nLogn)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-array-set-1-introduction/",
+        "time_complexity": "O(n*k*Logn)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-array-set-1-introduction/",
+        "time_complexity": "O(mlogn)",
+        "space_complexity": "O(m+n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-elements-sorted-order-row-column-wise-sorted-matrix/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-elements-sorted-order-row-column-wise-sorted-matrix/",
+        "time_complexity": "O(N2log(N2))",
+        "space_complexity": "O(N2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-elements-sorted-order-row-column-wise-sorted-matrix/",
+        "time_complexity": "O(N2LogN)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/stack-set-3-reverse-string-using-stack/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/stack-set-3-reverse-string-using-stack/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/insertion-in-splay-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/boggle-find-possible-words-board-characters/",
+        "time_complexity": "O(N2 *M2)",
+        "space_complexity": "O(N*M)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/boggle-find-possible-words-board-characters/",
+        "time_complexity": "O(N*W + R*C^2)",
+        "space_complexity": "O(N*W + R*C)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-missing-number/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-missing-number/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-missing-number/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-missing-number/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-missing-number/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-missing-number/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/avl-with-duplicate-keys/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-array-set-2-a-nlognlogn-algorithm/",
+        "time_complexity": "O(n Log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-array-set-2-a-nlognlogn-algorithm/",
+        "time_complexity": "O(N2 + Nlog(N))",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/cartesian-tree-sorting/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-tree-application-1-substring-check/",
+        "time_complexity": "O(N)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sort-numbers-stored-on-different-machines/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/leaders-in-an-array/",
+        "time_complexity": "O(N * N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/leaders-in-an-array/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/leaders-in-an-array/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/deletion-in-red-black-tree/",
+        "time_complexity": "O(log n)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/expression-tree/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/xor-linked-list-a-memory-efficient-doubly-linked-list-set-1/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
+        "time_complexity": "O(n^2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
+        "time_complexity": "O(N*Log2N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(h)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/deletion-in-binary-search-tree/",
+        "time_complexity": "O(log N)",
+        "space_complexity": "O(log N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/deletion-in-binary-search-tree/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sparse-set/",
+        "time_complexity": "O(Log n)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/graph-and-its-representations/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(V^2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/graph-and-its-representations/",
+        "time_complexity": "O(V)",
+        "space_complexity": "O(|V|+|E|)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/",
+        "time_complexity": "O(V + E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-tree-application-2-searching-all-patterns/",
+        "time_complexity": "O(N)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(H)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(H)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sort-a-stack-using-recursion/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sort-a-stack-using-recursion/",
+        "time_complexity": "O(n^2)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/",
+        "time_complexity": "O(log(n))",
+        "space_complexity": "O(log(n))"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-insert-and-delete-in-a-sorted-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(log N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/heap-sort/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/heap-sort/",
+        "time_complexity": "O(n log n)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-tree-application-4-build-linear-time-suffix-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/reverse-a-doubly-linked-list/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/reverse-a-doubly-linked-list/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/reverse-a-doubly-linked-list/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-array-rotation-continued-reversal-algorithm/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/program-for-array-rotation-continued-reversal-algorithm/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/connect-nodes-at-same-level/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/connect-nodes-at-same-level/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/",
+        "time_complexity": "O(m*n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/",
+        "time_complexity": "O(mLog(m) + nlog(m))",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/",
+        "time_complexity": "O(mLog(m) + nLog(n))",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/",
+        "time_complexity": "O(m+n*logm)",
+        "space_complexity": "O(m)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/",
+        "time_complexity": "O(m+n)",
+        "space_complexity": "O(n+m)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/",
+        "time_complexity": "O(m+n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/insertion-in-red-black-tree/",
+        "time_complexity": "O(log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/data-structure-n-elements-o1-operations/",
+        "time_complexity": "O(1) ",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/data-structure-n-elements-o1-operations/",
+        "time_complexity": "O(1) ",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/data-structure-n-elements-o1-operations/",
+        "time_complexity": "O(1) ",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/data-structure-n-elements-o1-operations/",
+        "time_complexity": "O(1) ",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/merge-two-balanced-binary-search-trees/",
+        "time_complexity": "O(m+n)",
+        "space_complexity": "O(m+n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/merge-two-balanced-binary-search-trees/",
+        "time_complexity": "O(N + M)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-k-most-frequent-words-from-a-file/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/interval-tree/",
+        "time_complexity": "O(n*h)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/interval-tree/",
+        "time_complexity": "O(n*h)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/",
+        "time_complexity": "O(2N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)+O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-sum-such-that-no-two-elements-are-adjacent/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/",
+        "time_complexity": "O(N2logN)",
+        "space_complexity": "O(logN)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(logn)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-to-binary-tree-data-structure-and-algorithm-tutorials/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-to-binary-tree-data-structure-and-algorithm-tutorials/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(h)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-to-binary-tree-data-structure-and-algorithm-tutorials/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-minimum-in-k-dimensional-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/efficiently-implement-k-stacks-single-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/count-number-islands-every-island-separated-line/",
+        "time_complexity": "O(M x N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/union-and-intersection-of-two-linked-lists/",
+        "time_complexity": "O(m*n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/union-and-intersection-of-two-linked-lists/",
+        "time_complexity": "O(mLogm + nLogn)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/union-and-intersection-of-two-linked-lists/",
+        "time_complexity": "O(m+n)",
+        "space_complexity": "O(m+n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/types-of-binary-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/types-of-binary-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/types-of-binary-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/reverse-a-stack-using-recursion/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/",
+        "time_complexity": "O(NLogN)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/nearly-sorted-algorithm/",
+        "time_complexity": "O(N*K)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/nearly-sorted-algorithm/",
+        "time_complexity": "O(nk)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/nearly-sorted-algorithm/",
+        "time_complexity": "O(K) + O(m * log(k))",
+        "space_complexity": "O(K)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/nearly-sorted-algorithm/",
+        "time_complexity": "O(N * Log N)",
+        "space_complexity": "O(Log N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-stack-using-queue/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-stack-using-queue/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-stack-using-queue/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-stack-using-queue/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-stack-using-queue/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(h)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/",
+        "time_complexity": "O(M+N)",
+        "space_complexity": "O(H1 + H2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/",
+        "time_complexity": "O(M+N)",
+        "space_complexity": "O(H1 + H2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/",
+        "time_complexity": "O(M+N)",
+        "space_complexity": "O(max(H1,H2))"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/deletion-in-an-avl-tree/",
+        "time_complexity": "O(Log n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/priority-queue-set-1-introduction/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/priority-queue-set-1-introduction/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-linked-list/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-linked-list/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-linked-list/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-linked-list/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-linked-list/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/circular-linked-list/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inplace-m-x-n-size-matrix-transpose/",
+        "time_complexity": "O(R*C)",
+        "space_complexity": "O(size of the bitset)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inplace-m-x-n-size-matrix-transpose/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(MN)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/generalized-suffix-tree/",
+        "time_complexity": "O(M+N)",
+        "space_complexity": "O(M+N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(w)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(h)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/cartesian-tree/",
+        "time_complexity": "O(n2)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-reverse-dns-look-cache/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-reverse-dns-look-cache/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-reverse-dns-look-cache/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/queue-using-stacks/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/queue-using-stacks/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/queue-using-stacks/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/c-program-red-black-tree-insertion/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/suffix-tree-application-6-longest-palindromic-substring/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/a-boolean-matrix-question/",
+        "time_complexity": "O((N*M)*(N + M))",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/a-boolean-matrix-question/",
+        "time_complexity": "O(M*N)",
+        "space_complexity": "O(M + N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/a-boolean-matrix-question/",
+        "time_complexity": "O(M*N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s-in-a-binary-matrix/",
+        "time_complexity": "O(m*n)",
+        "space_complexity": "O(m*n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s-in-a-binary-matrix/",
+        "time_complexity": "O(m*n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/majority-element/",
+        "time_complexity": "O(n*n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/majority-element/",
+        "time_complexity": "O(n2)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/majority-element/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/majority-element/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/majority-element/",
+        "time_complexity": "O(nlogn)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/",
+        "time_complexity": "O(V+E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/",
+        "time_complexity": "O(V+E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/insertion-in-an-avl-tree/",
+        "time_complexity": "O(n*log(n))",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-of-b-tree-2/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-of-b-tree-2/",
+        "time_complexity": "O(log n)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/",
+        "time_complexity": "O(NlogN)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/",
+        "time_complexity": "O(NlogN)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/",
+        "time_complexity": "O(N+X)",
+        "space_complexity": "O(X)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-successor-in-binary-search-tree/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-successor-in-binary-search-tree/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-successor-in-binary-search-tree/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-successor-in-binary-search-tree/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/unrolled-linked-list-set-1-introduction/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-number-of-employees-under-every-manager/",
+        "time_complexity": "O(n*log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/delete-a-node-in-a-doubly-linked-list/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/detect-cycle-undirected-graph/",
+        "time_complexity": "O(V+E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/quicksort-for-linked-list/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/quicksort-for-linked-list/",
+        "time_complexity": "O(n^2)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/persistent-segment-tree-set-1-introduction/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(log n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/",
+        "time_complexity": "O(n * log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/",
+        "time_complexity": "O(n * log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/",
+        "time_complexity": "O(M*N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/",
+        "time_complexity": "O(M*N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/",
+        "time_complexity": "O(M*N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(h)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/",
+        "time_complexity": "O(nlogn)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(h)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-indexed-tree-range-updates-point-queries/",
+        "time_complexity": "O(q*n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-indexed-tree-range-updates-point-queries/",
+        "time_complexity": "O(q * log n) + O(n * log n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/",
+        "time_complexity": "O(log N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/",
+        "time_complexity": "O(log N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/array-rotation/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/array-rotation/",
+        "time_complexity": "O(N * d)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/array-rotation/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/array-rotation/",
+        "time_complexity": "O(d*n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/strassens-matrix-multiplication/",
+        "time_complexity": "O(N3)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/strassens-matrix-multiplication/",
+        "time_complexity": "O(N2)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/strassens-matrix-multiplication/",
+        "time_complexity": "O(N2)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/threaded-binary-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/threaded-binary-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/threaded-binary-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/bipartite-graph/",
+        "time_complexity": "O(V*V)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/bipartite-graph/",
+        "time_complexity": "O(V+E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/bipartite-graph/",
+        "time_complexity": "O(V+E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/bipartite-graph/",
+        "time_complexity": "O(V+E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-minimum-element-in-a-binary-search-tree/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-minimum-element-in-a-binary-search-tree/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/segment-tree-sum-of-given-range/",
+        "time_complexity": "O(N*log(N))",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/segment-tree-sum-of-given-range/",
+        "time_complexity": "O(log n)",
+        "space_complexity": "O(4n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/trie-insert-and-search/",
+        "time_complexity": "O(M)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/trie-insert-and-search/",
+        "time_complexity": "O(key_length)",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/evaluation-of-postfix-expression/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/evaluation-of-postfix-expression/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/two-dimensional-binary-indexed-tree-or-fenwick-tree/",
+        "time_complexity": "O((NM+Q).log(NM))",
+        "space_complexity": "O(NM)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-given-array-contains-duplicate-elements-within-k-distance/",
+        "time_complexity": "O(N*K)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/check-given-array-contains-duplicate-elements-within-k-distance/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/delete-operation-in-b-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together-set-2/",
+        "time_complexity": "O(MN+N*MlogM)",
+        "space_complexity": "O(26*M*N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/queue-linked-list-implementation/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-to-disjoint-set-data-structure-or-union-find-algorithm/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/trie-delete/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n*m)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/given-n-x-n-square-matrix-find-sum-sub-squares-size-k-x-k/",
+        "time_complexity": "O(k2n2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/given-n-x-n-square-matrix-find-sum-sub-squares-size-k-x-k/",
+        "time_complexity": "O(n2)",
+        "space_complexity": "O(n2)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/",
+        "time_complexity": "O(H)",
+        "space_complexity": "O(H)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/",
+        "time_complexity": "O(H)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/next-greater-element/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/next-greater-element/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/next-greater-element/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/next-greater-element/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/",
+        "time_complexity": "O(N * log(N))",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/",
+        "time_complexity": "O(N * log K)",
+        "space_complexity": "O(K)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/",
+        "time_complexity": "O(N * log(K))",
+        "space_complexity": "O(K)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/",
+        "time_complexity": "O(N * log(N))",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(MAX)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sort-elements-by-frequency/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sort-elements-by-frequency/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sort-elements-by-frequency/",
+        "time_complexity": "O(N log N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/sort-elements-by-frequency/",
+        "time_complexity": "O(d * log(d))",
+        "space_complexity": "O(d)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/level-order-tree-traversal/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/level-order-tree-traversal/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/block-swap-algorithm-for-array-rotation/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(log n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/block-swap-algorithm-for-array-rotation/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/binary-indexed-tree-range-update-range-queries/",
+        "time_complexity": "O(q * log(N))",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/",
+        "time_complexity": "",
+        "space_complexity": ""
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/",
+        "time_complexity": "O(h)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/snake-ladder-problem-2/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/snake-ladder-problem-2/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/",
+        "time_complexity": "O(N * logN)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/topological-sorting/",
+        "time_complexity": "O(V+E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/topological-sorting/",
+        "time_complexity": "O(V + E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/",
+        "time_complexity": "O(1)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/xor-linked-list-a-memory-efficient-doubly-linked-list-set-2/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/total-number-of-possible-binary-search-trees-with-n-keys/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/implementation-deque-using-circular-array/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/",
+        "time_complexity": "O(V + E)",
+        "space_complexity": "O(V + E)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/",
+        "time_complexity": "O(V + E)",
+        "space_complexity": "O(V)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-longest-path-directed-acyclic-graph/",
+        "time_complexity": "O(V+E)",
+        "space_complexity": "O(V + E)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-itinerary-from-a-given-list-of-tickets/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/",
+        "time_complexity": "O(n^2)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(n)"
+    }
+]

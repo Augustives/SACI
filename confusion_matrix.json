@@ -1,0 +1,22 @@
+{
+    "Time Complexity": {
+        "True Positive": 406,
+        "False Positive": 96,
+        "True Negative": 18,
+        "False negative": 7,
+        "Accuracy": 0.8045540796963947,
+        "Precision": 0.8087649402390438,
+        "Revoke": 0.9830508474576272,
+        "F1 Score": 1.4513661202185792
+    },
+    "Space Complexity": {
+        "True Positive": 422,
+        "False Positive": 71,
+        "True Negative": 31,
+        "False negative": 3,
+        "Accuracy": 0.8595825426944972,
+        "Precision": 0.8559837728194726,
+        "Revoke": 0.9929411764705882,
+        "F1 Score": 1.462962962962963
+    }
+}

@@ -1,9 +1,8 @@
-from scraper.utils import remove_duplicates
-from scraper.utils import write_results_to_json
 from scraper.schema import ScrapedAlgorithm
+from scraper.utils import remove_duplicates, write_results_to_json
 
 
-def results_caracterization(data: list[ScrapedAlgorithm]) -> dict:
+def make_results_caracterization(data: list[ScrapedAlgorithm]) -> dict:
     return {
         "Distinct Time Complexitys": len(
             list({algorithm.time_complexity for algorithm in data})
@@ -28,7 +27,7 @@ def results_caracterization(data: list[ScrapedAlgorithm]) -> dict:
     }
 
 
-def calculate_completition_rate(data: list[ScrapedAlgorithm]) -> dict:
+def make_completition_rate(data: list[ScrapedAlgorithm]) -> dict:
     total = len(data)
     time_complexity, space_complexity = 0, 0
     urls_with_problem = []
@@ -53,6 +52,6 @@ def calculate_completition_rate(data: list[ScrapedAlgorithm]) -> dict:
 
 def make_results_analysis(data: list[ScrapedAlgorithm]):
     write_results_to_json(
-        "results_analysis.json",
-        [{**calculate_completition_rate(data), **results_caracterization(data)}],
+        "results_analysis",
+        [{**make_completition_rate(data), **make_results_caracterization(data)}],
     )

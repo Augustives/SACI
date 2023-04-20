@@ -2,7 +2,7 @@ from asyncio import gather
 
 from scraper.exceptions import FailedExtraction
 from scraper.observability.log import scraper_log as log
-from scraper.observability.metric import make_results_analysis
+from scraper.observability.metrics import make_results_analysis
 from scraper.schema import ScrapedAlgorithm
 from scraper.session.http_session import HttpSession
 from scraper.session.response import Response
@@ -90,7 +90,6 @@ async def run() -> list:
 
     log.info('Starting "Geeks for Geeks" algorithms extraction')
     algorithms_urls = await follow_algorithms_urls(session)
-    # algorithms_urls = ["https://www.geeksforgeeks.org/interval-tree/"]
 
     await follow_login(session)
     algorithms = await follow_algorithms(session, algorithms_urls)

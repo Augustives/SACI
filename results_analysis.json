@@ -1,0 +1,33 @@
+[
+    {
+        "Total Algorithms": 532,
+        "Time Complexity Extracted": "497 extracted - 93.42105263157895%",
+        "Space Complexity Extraced": "477 extracted - 89.66165413533835%",
+        "URLs with problem": [
+            "https://www.geeksforgeeks.org/n-queen-problem-using-branch-and-bound/",
+            "https://www.geeksforgeeks.org/randomized-algorithms-set-3-12-approximate-median/",
+            "https://www.geeksforgeeks.org/deletion-in-k-dimensional-tree/",
+            "https://www.geeksforgeeks.org/centroid-decomposition-of-tree/",
+            "https://www.geeksforgeeks.org/data-structure-n-elements-o1-operations/",
+            "https://www.geeksforgeeks.org/delete-operation-in-b-tree/",
+            "https://www.geeksforgeeks.org/find-the-k-most-frequent-words-from-a-file/",
+            "https://www.geeksforgeeks.org/memory-efficient-doubly-linked-list/",
+            "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
+            "https://www.geeksforgeeks.org/heap-sort/",
+            "https://www.geeksforgeeks.org/introduction-to-binary-tree-data-structure-and-algorithm-tutorials/",
+            "https://www.geeksforgeeks.org/threaded-binary-tree/",
+            "https://www.geeksforgeeks.org/efficiently-implement-k-queues-single-array/",
+            "https://www.geeksforgeeks.org/deletion-in-red-black-tree/",
+            "https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/",
+            "https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/",
+            "https://www.geeksforgeeks.org/binary-heap/",
+            "https://www.geeksforgeeks.org/binomial-heap-2/",
+            "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
+            "https://www.geeksforgeeks.org/find-minimum-in-k-dimensional-tree/"
+        ],
+        "Distinct Time Complexitys": 128,
+        "Distinct Space Complexitys": 72,
+        "Non Trusted Time Complexitys": 72,
+        "Non Trusted Space Complexitys": 72
+    }
+]
