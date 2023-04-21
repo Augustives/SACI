@@ -13,4 +13,7 @@ async def run_scrapers():
             database = Database()
             database.update_database(name, [result.dict() for result in data])
         else:
-            write_results_to_json(name, [result.dict() for result in data])
+            write_results_to_json(
+                name,
+                sorted([result.dict() for result in data], key=lambda alg: alg["url"]),
+            )
