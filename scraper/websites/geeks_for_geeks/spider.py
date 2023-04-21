@@ -83,16 +83,18 @@ async def follow_algorithms_urls(session: HttpSession) -> list:
     return sum(algorithm_location_urls, [])
 
 
-# ------- MAIN -------
-async def run() -> list:
+# ------- RUN -------
+async def run(url: str = None) -> list:
     session = HttpSession()
     session.default_headers = HEADERS
 
     log.info('Starting "Geeks for Geeks" algorithms extraction')
-    algorithms_urls = await follow_algorithms_urls(session)
+    if not url:
+        algorithms_urls = await follow_algorithms_urls(session)
+    else:
+        algorithms_urls = [url]
 
     await follow_login(session)
     algorithms = await follow_algorithms(session, algorithms_urls)
-    make_results_analysis(algorithms)
 
     return algorithms
