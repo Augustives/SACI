@@ -20,7 +20,7 @@ results_analysis:
 	$(PYTHON) -m scraper.scripts --script=results_analysis --scraper=$(scraper)
 
 manual_results_boilerplate:
-	$(PYTHON) -m scraper.scripts --script=manual_results_boilerplate
+	$(PYTHON) -m scraper.scripts --script=manual_results_boilerplate --scraper=$(scraper)
 
 
 .PHONY: run_scraper

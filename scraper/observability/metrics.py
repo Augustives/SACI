@@ -185,13 +185,13 @@ def make_manual_results_boilerplate(scraper: str):
         file_contents = file.read()
         results = json.loads(file_contents)
 
-    with open(f"./results/manual_{scraper}.txt", "w") as file:
-        file.writelines(
-            [
-                f"{{'url' = {alg['url']}, 'time_complexity': ' ', 'space_complexity': ' '}}\n"
-                for alg in results
-            ]
-        )
+    write_results_to_json(
+        f"./results/manual_{scraper}",
+        [
+            {"url": alg["url"], "time_complexity": " ", "space_complexity": " "}
+            for alg in results
+        ],
+    )
 
 
 def make_results_analysis(scraper: str):
