@@ -5,13 +5,15 @@ import numpy
 from mlxtend.plotting import plot_confusion_matrix
 
 from scraper.schema import ScrapedAlgorithm
-from scraper.utils import remove_duplicates, write_results_to_json
+from scraper.utils import (
+    remove_duplicates,
+    write_results_to_json,
+    open_results_from_json,
+)
 
 
 def make_results_caracterization(scraper: str) -> dict:
-    with open(f"./results/{scraper}.json", "r") as file:
-        file_contents = file.read()
-        results = json.loads(file_contents)
+    results = open_results_from_json(f"./results/{scraper}.json")
 
     return {
         "Distinct Time Complexitys": len(
@@ -38,9 +40,7 @@ def make_results_caracterization(scraper: str) -> dict:
 
 
 def make_completition_rate(scraper: str) -> dict:
-    with open(f"./results/{scraper}.json", "r") as file:
-        file_contents = file.read()
-        results = json.loads(file_contents)
+    results = open_results_from_json(f"./results/{scraper}.json")
 
     total = len(results)
     time_complexity, space_complexity = 0, 0
@@ -65,12 +65,8 @@ def make_completition_rate(scraper: str) -> dict:
 
 
 def make_confusion_matrix(scraper: str) -> dict:
-    with open(f"./results/manual_{scraper}.json", "r") as file:
-        file_contents = file.read()
-        manual_results = json.loads(file_contents)
-    with open(f"./results/{scraper}.json", "r") as file:
-        file_contents = file.read()
-        results = json.loads(file_contents)
+    manual_results = open_results_from_json(f"./results/manual_{scraper}.json")
+    results = open_results_from_json(f"./results/{scraper}.json")
 
     (
         time_true_positive,
@@ -181,9 +177,7 @@ def make_confusion_matrix(scraper: str) -> dict:
 
 
 def make_manual_results_boilerplate(scraper: str):
-    with open(f"./results/{scraper}.json", "r") as file:
-        file_contents = file.read()
-        results = json.loads(file_contents)
+    results = open_results_from_json(f"./results/{scraper}.json")
 
     write_results_to_json(
         f"./results/manual_{scraper}",

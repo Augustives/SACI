@@ -170,6 +170,11 @@
         "space_complexity": "O(n)"
     },
     {
+        "url": "https://www.geeksforgeeks.org/binary-tree-to-binary-search-tree-conversion/",
+        "time_complexity": "O(nlogn)",
+        "space_complexity": "O(n)"
+    },
+    {
         "url": "https://www.geeksforgeeks.org/binomial-heap-2/",
         "time_complexity": "",
         "space_complexity": ""
@@ -397,7 +402,12 @@
     {
         "url": "https://www.geeksforgeeks.org/coin-change-dp-7/",
         "time_complexity": "O(N*sum)",
-        "space_complexity": "O(N*sum)"
+        "space_complexity": " O(N*sum)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/coin-change-dp-7/",
+        "time_complexity": "O(n * m)",
+        "space_complexity": "O(n)"
     },
     {
         "url": "https://www.geeksforgeeks.org/connect-nodes-at-same-level/",
@@ -685,6 +695,11 @@
         "space_complexity": "O(h)"
     },
     {
+        "url": "https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/",
+        "time_complexity": "O(h+ k)",
+        "space_complexity": "O(h+k)"
+    },
+    {
         "url": "https://www.geeksforgeeks.org/find-longest-path-directed-acyclic-graph/",
         "time_complexity": "O(V+E)",
         "space_complexity": "O(V + E)"
@@ -732,6 +747,11 @@
     {
         "url": "https://www.geeksforgeeks.org/find-the-minimum-element-in-a-binary-search-tree/",
         "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/find-the-minimum-element-in-a-binary-search-tree/",
+        "time_complexity": "O(log n)",
         "space_complexity": "O(1)"
     },
     {
@@ -1040,6 +1060,11 @@
         "space_complexity": "O(n)"
     },
     {
+        "url": "https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/",
+        "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
         "url": "https://www.geeksforgeeks.org/inplace-m-x-n-size-matrix-transpose/",
         "time_complexity": "O(R*C)",
         "space_complexity": "O(size of the bitset)"
@@ -1310,6 +1335,11 @@
         "space_complexity": "O(m * n)"
     },
     {
+        "url": "https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/",
+        "time_complexity": "O(m * n)",
+        "space_complexity": "O(m * n)"
+    },
+    {
         "url": "https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/",
         "time_complexity": "O(2N)",
         "space_complexity": "O(1)"
@@ -1328,6 +1358,11 @@
         "url": "https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/",
         "time_complexity": "O(N2)",
         "space_complexity": "O(N)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/",
+        "time_complexity": "O(N2)",
+        "space_complexity": "O(N2)"
     },
     {
         "url": "https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/",
@@ -1413,6 +1448,11 @@
         "url": "https://www.geeksforgeeks.org/majority-element/",
         "time_complexity": "O(nlogn)",
         "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/majority-element/",
+        "time_complexity": "O(N*log N)",
+        "space_complexity": "O(log N)"
     },
     {
         "url": "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/",
@@ -2015,6 +2055,11 @@
         "space_complexity": "O(1)"
     },
     {
+        "url": "https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/",
+        "time_complexity": "O(n)",
+        "space_complexity": "O(1)"
+    },
+    {
         "url": "https://www.geeksforgeeks.org/search-and-insertion-in-k-dimensional-tree/",
         "time_complexity": "O(n)",
         "space_complexity": "O(n)"
@@ -2027,6 +2072,11 @@
     {
         "url": "https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/",
         "time_complexity": "O(N)",
+        "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/search-in-row-wise-and-column-wise-sorted-matrix/",
+        "time_complexity": "O(n^2)",
         "space_complexity": "O(1)"
     },
     {
@@ -2548,6 +2598,11 @@
         "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
         "time_complexity": "O(log n)",
         "space_complexity": "O(1)"
+    },
+    {
+        "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",
+        "time_complexity": "",
+        "space_complexity": ""
     },
     {
         "url": "https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/",

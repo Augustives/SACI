@@ -38,6 +38,13 @@ def remove_duplicates(data: list) -> list:
     return list(set(data))
 
 
-def write_results_to_json(file_name: str, data: list):
-    with open(f"./{file_name}.json", "w") as file:
+def open_results_from_json(file_path: str) -> dict:
+    with open(file_path, "r") as file:
+        file_contents = file.read()
+        results = json.loads(file_contents)
+    return results
+
+
+def write_results_to_json(file_path: str, data: list):
+    with open(f"{file_path}.json", "w") as file:
         json.dump(data, file)
