@@ -54,7 +54,7 @@
             "Accuracy": 0.8252788104089219,
             "Precision": 0.8434442270058709,
             "Recall": 0.9685393258426966,
-            "F1 Score": 1.465481171548117
+            "F1 Score": 0.901673640167364
         },
         "Space Complexity": {
             "True Positive": 440,
@@ -64,7 +64,23 @@
             "Accuracy": 0.9219330855018587,
             "Precision": 0.9128630705394191,
             "Recall": 1.0,
-            "F1 Score": 1.4772234273318872
+            "F1 Score": 0.9544468546637744
+        },
+        "Time Complexity Classification": {
+            "Constant complexity": 54,
+            "Linear complexity": 183,
+            "Exponential complexity": 7,
+            "Polynomial complexity": 161,
+            "Factorial complexity": 9,
+            "Log complexity": 80
+        },
+        "Space Complexity Classification": {
+            "Constant complexity": 184,
+            "Linear complexity": 194,
+            "Exponential complexity": 1,
+            "Polynomial complexity": 78,
+            "Factorial complexity": 1,
+            "Log complexity": 16
         }
     }
 ]

@@ -1,14 +1,17 @@
-import json
+import re
+import requests
+import math
+from collections import Counter
 
 import matplotlib.pyplot as plt
 import numpy
+from bs4 import BeautifulSoup
 from mlxtend.plotting import plot_confusion_matrix
 
-from scraper.schema import ScrapedAlgorithm
 from scraper.utils import (
+    open_results_from_json,
     remove_duplicates,
     write_results_to_json,
-    open_results_from_json,
 )
 
 
@@ -118,7 +121,7 @@ def make_confusion_matrix(scraper: str) -> dict:
     )
     time_precision = time_true_positive / (time_true_positive + time_false_positive)
     time_recall = time_true_positive / (time_true_positive + time_false_negative)
-    time_f1_score = (2 * time_precision + time_recall) / (time_precision + time_recall)
+    time_f1_score = (2 * time_precision * time_recall) / (time_precision + time_recall)
 
     space_accuracy = (space_true_positive + space_true_negative) / (
         space_true_positive
@@ -128,7 +131,7 @@ def make_confusion_matrix(scraper: str) -> dict:
     )
     space_precision = space_true_positive / (space_true_positive + space_false_positive)
     space_recall = space_true_positive / (space_true_positive + space_false_negative)
-    space_f1_score = (2 * space_precision + space_recall) / (
+    space_f1_score = (2 * space_precision * space_recall) / (
         space_precision + space_recall
     )
 
@@ -188,6 +191,132 @@ def make_manual_results_boilerplate(scraper: str):
     )
 
 
+def make_complexitys_classification(scraper: str):
+    results = open_results_from_json(f"./results/{scraper}.json")
+    (
+        time_constant,
+        time_linear,
+        time_exponential,
+        time_polynomial,
+        time_factorial,
+        time_logarithmic,
+    ) = (0, 0, 0, 0, 0, 0)
+    (
+        space_constant,
+        space_linear,
+        space_exponential,
+        space_polynomial,
+        space_factorial,
+        space_logarithmic,
+    ) = (0, 0, 0, 0, 0, 0)
+    for result in results:
+        if time_complexity := result["time_complexity"]:
+            if re.match(r"O\(1\)", time_complexity):
+                time_constant += 1
+            elif re.match(r"O\(\w\)", time_complexity):
+                time_linear += 1
+            elif re.match(r"O\(.*!.*\)", time_complexity):
+                time_factorial += 1
+            elif re.match(r"O\(.*log.*\)", time_complexity):
+                time_logarithmic += 1
+            elif re.match(r"O\(\d\^?\w\)", time_complexity):
+                time_exponential += 1
+            elif re.match(
+                r"O\(\w\s*[\^\*\+]?\s*[\d\w\s]+.*\)", time_complexity
+            ) or re.match("O\(\d+\(\w\*\w\)", time_complexity):
+                time_polynomial += 1
+
+        if space_complexity := result["space_complexity"]:
+            if re.match(r"O\(1\)", space_complexity):
+                space_constant += 1
+            elif re.match(r"O\(\w\)", space_complexity):
+                space_linear += 1
+            elif re.match(r"O\(.*!.*\)", space_complexity):
+                space_factorial += 1
+            elif re.match(r"O\(.*log.*\)", space_complexity):
+                space_logarithmic += 1
+            elif re.match(r"O\(\d\^?\w\)", space_complexity):
+                space_exponential += 1
+            elif re.match(
+                r"O\(\w\s*[\^\*\+]?\s*[\d\w\s]+.*\)", space_complexity
+            ) or re.match("O\(\d+\(\w\*\w\)", space_complexity):
+                space_polynomial += 1
+
+    return {
+        "Time Complexity Classification": {
+            "Constant complexity": time_constant,
+            "Linear complexity": time_linear,
+            "Exponential complexity": time_exponential,
+            "Polynomial complexity": time_polynomial,
+            "Factorial complexity": time_factorial,
+            "Log complexity": time_logarithmic,
+        },
+        "Space Complexity Classification": {
+            "Constant complexity": space_constant,
+            "Linear complexity": space_linear,
+            "Exponential complexity": space_exponential,
+            "Polynomial complexity": space_polynomial,
+            "Factorial complexity": space_factorial,
+            "Log complexity": space_logarithmic,
+        },
+    }
+
+
+def make_algorithms_histogram(scraper: str):
+    results = open_results_from_json(f"./results/{scraper}.json")
+
+    count = Counter([result["url"] for result in results]).values()
+    plt.hist(count)
+    plt.xlabel("Number of Algorithms")
+    plt.ylabel("Frequency")
+    plt.title("Algorithms Distribution Histogram")
+    plt.show()
+
+
+def calculate_html_nodes_depth(scraper: str):
+    def traverse_tree(node, depth):
+        tag = node.name
+        if tag not in depths:
+            depths[tag] = []
+        depths[tag].append(depth)
+
+        if hasattr(node, "children"):
+            for child in node.children:
+                if hasattr(child, "name"):
+                    traverse_tree(child, depth + 1)
+
+    results = open_results_from_json(f"./results/{scraper}.json")
+    urls = list(set([result["url"] for result in results]))
+
+    all_max_depths, all_num_nodes = [], []
+    for url in urls:
+        response = requests.get(url)
+        soup = BeautifulSoup(response.content, "html.parser")
+
+        depths = {}
+        traverse_tree(soup, 0)
+
+        max_depth = max([max(depths[tag]) for tag in depths])
+        num_nodes = sum([len(depths[tag]) for tag in depths])
+
+        all_max_depths.append(max_depth)
+        all_num_nodes.append(num_nodes)
+
+    _, axs = plt.subplots(1, 2, figsize=(10, 5))
+    axs[0].hist(all_max_depths, bins=[23, 24, 25, 26])
+    axs[0].set_xlabel("Max Depth")
+    axs[0].set_ylabel("Frequency")
+    axs[0].set_title("Max Depth Histogram")
+
+    axs[1].hist(all_num_nodes, bins=[2500, 7500, 12500, 17500, 22500, 30000])
+    axs[1].set_xlabel("Number of Nodes")
+    axs[1].set_ylabel("Frequency")
+    axs[1].set_title("Node Count Histogram")
+
+    plt.suptitle("Combined Histogram for All URLs")
+    plt.show()
+
+
 def make_results_analysis(scraper: str):
     write_results_to_json(
         f"./results/{scraper}_analysis",
@@ -196,6 +325,7 @@ def make_results_analysis(scraper: str):
                 **make_completition_rate(scraper),
                 **make_results_caracterization(scraper),
                 **make_confusion_matrix(scraper),
+                **make_complexitys_classification(scraper),
             }
         ],
     )
