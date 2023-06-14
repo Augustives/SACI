@@ -21,6 +21,3 @@ results_analysis:
 
 manual_results_boilerplate:
 	$(PYTHON) -m scraper.scripts --script=manual_results_boilerplate --scraper=$(scraper)
-
-
-.PHONY: run_scraper

@@ -267,9 +267,9 @@ def make_algorithms_histogram(scraper: str):
 
     count = Counter([result["url"] for result in results]).values()
     plt.hist(count)
-    plt.xlabel("Number of Algorithms")
-    plt.ylabel("Frequency")
-    plt.title("Algorithms Distribution Histogram")
+    plt.xlabel("Número de Algoritmos")
+    plt.ylabel("Frequência")
+    plt.title("Histograma da Distribuição de Algoritmos")
     plt.show()
 
 
@@ -304,14 +304,14 @@ def calculate_html_nodes_depth(scraper: str):
 
     _, axs = plt.subplots(1, 2, figsize=(10, 5))
     axs[0].hist(all_max_depths, bins=[23, 24, 25, 26])
-    axs[0].set_xlabel("Max Depth")
-    axs[0].set_ylabel("Frequency")
-    axs[0].set_title("Max Depth Histogram")
+    axs[0].set_xlabel("Profundidade Máxima")
+    axs[0].set_ylabel("Frequência")
+    axs[0].set_title("Histograma da Profundidade Máxima")
 
     axs[1].hist(all_num_nodes, bins=[2500, 7500, 12500, 17500, 22500, 30000])
-    axs[1].set_xlabel("Number of Nodes")
-    axs[1].set_ylabel("Frequency")
-    axs[1].set_title("Node Count Histogram")
+    axs[1].set_xlabel("Número de Nodos")
+    axs[1].set_ylabel("Frequência")
+    axs[1].set_title("Histograma da Contagem de Nodos")
 
     plt.suptitle("Combined Histogram for All URLs")
     plt.show()
@@ -329,3 +329,5 @@ def make_results_analysis(scraper: str):
             }
         ],
     )
+    # calculate_html_nodes_depth(scraper)
+    # make_algorithms_histogram(scraper)
