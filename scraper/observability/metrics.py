@@ -223,7 +223,7 @@ def make_complexitys_classification(scraper: str):
                 time_exponential += 1
             elif re.match(
                 r"O\(\w\s*[\^\*\+]?\s*[\d\w\s]+.*\)", time_complexity
-            ) or re.match("O\(\d+\(\w\*\w\)", time_complexity):
+            ) or re.match(r"O\(\d+\(\w\*\w\)", time_complexity):
                 time_polynomial += 1
 
         if space_complexity := result["space_complexity"]:
