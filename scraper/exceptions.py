@@ -1,3 +1,8 @@
+class InvalidUrlException(Exception):
+    def __init__(self, url):
+        super().__init__(f"The provided URL '{url}' is not valid.")
+
+
 class TooManyRetrysException(Exception):
     pass
 

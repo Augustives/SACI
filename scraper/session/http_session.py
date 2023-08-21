@@ -1,27 +1,27 @@
 import asyncio
-from re import match
 
 from aiohttp import ClientSession
 from requests_html import AsyncHTMLSession
+from yarl import URL
 
-from scraper.utils import retry, TooManyRetrysException
+from scraper.exceptions import TooManyRetrysException
 from scraper.observability.log import session_log as log
-from scraper.session.response import Response
-from scraper.session.settings import MAX_REDIRECTS, REGEX, REQUIRED_REQUEST_ARGS
-from scraper.session.utils import (
+from scraper.session.exceptions import (
     InvalidArgumentType,
     InvalidUrlException,
     MissingArgumentException,
     MissingMethodException,
     UnsupportedMethodException,
 )
+from scraper.session.response import Response
+from scraper.session.settings import MAX_REDIRECTS, REQUIRED_REQUEST_ARGS
+from scraper.utils import retry
 
 
 class HttpSession:
     def __init__(self):
         self._session = ClientSession()
         self._js_session = AsyncHTMLSession()
-        self._headers = {}
         self._default_headers = {}
 
     @property
@@ -30,65 +30,58 @@ class HttpSession:
 
     @default_headers.setter
     def default_headers(self, headers: dict):
-        correct_type = dict
-        if type(headers) != correct_type:
-            raise InvalidArgumentType(correct_type)
+        if not isinstance(headers, dict):
+            raise InvalidArgumentType(dict)
         self._default_headers = headers
 
     @staticmethod
     def validate_url(url: str):
-        if not match(REGEX["url"], url):
-            raise InvalidUrlException
+        if not URL(url).is_absolute():
+            raise InvalidUrlException(url)
 
-    def _validate_request_args(self, *args, **kwargs):
+    def _validate_request_args(self, **kwargs):
         method = kwargs.get("method")
         if not method:
             raise MissingMethodException
-        elif method not in REQUIRED_REQUEST_ARGS.keys():
+        if method not in REQUIRED_REQUEST_ARGS:
             raise UnsupportedMethodException
-        else:
-            for arg in REQUIRED_REQUEST_ARGS[method]:
-                if not kwargs.get(arg):
-                    raise MissingArgumentException(arg)
-
+        for arg in REQUIRED_REQUEST_ARGS[method]:
+            if arg not in kwargs:
+                raise MissingArgumentException(arg)
         self.validate_url(kwargs["url"])
 
-        return kwargs
-
     def _make_headers(self, headers: dict) -> dict:
-        if not headers:
-            return self._default_headers
-        else:
-            return {**self._default_headers**headers}
+        return {**self._default_headers, **(headers or {})}
 
     @retry(times=3)
-    async def _http_request(self, *args, **kwargs):
+    async def _http_request(self, **kwargs):
         response = await self._session.request(
             max_redirects=MAX_REDIRECTS,
-            **{**kwargs, "headers": self._make_headers(kwargs.get("headers", {}))},
+            **kwargs,
+            headers=self._make_headers(kwargs.get("headers")),
         )
         await asyncio.sleep(2)
         return response
 
-    async def request(self, *args, **kwargs) -> Response:
-        self._validate_request_args(*args, **kwargs)
+    async def request(self, **kwargs) -> Response:
+        self._validate_request_args(**kwargs)
         callbacks = kwargs.pop("callbacks", None)
 
         try:
-            response = await self._http_request(*args, **kwargs)
+            aiohttp_response = await self._http_request(**kwargs)
         except TooManyRetrysException:
-            log.error(f'Request failed. URL: {kwargs.get("url")}')
-            return []
+            log.error(f'Request failed. URL: {kwargs["url"]}')
+            return Response()
 
-        response = await Response.create_response_object(response)
+        response = await Response.create_response_object(aiohttp_response)
 
         if callbacks:
             for callback in callbacks:
                 response = callback(response)
         return response
 
-    async def js_script_request(self, *args, **kwargs):
-        self._validate_request_args(*args, **kwargs)
+    async def js_script_request(self, **kwargs):
+        self._validate_request_args(**kwargs)
         script = kwargs.get("script")
 
         response = await self._js_session.request(kwargs)

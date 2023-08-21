@@ -1,11 +1,12 @@
-import re
-import requests
 import math
+import re
 from collections import Counter
+from typing import Any, Dict, List, Tuple, Union
 
 import matplotlib.pyplot as plt
 import numpy
-from bs4 import BeautifulSoup
+import requests
+from bs4 import BeautifulSoup, NavigableString, Tag
 from mlxtend.plotting import plot_confusion_matrix
 
 from scraper.utils import (
@@ -15,250 +16,196 @@ from scraper.utils import (
 )
 
 
-def make_results_caracterization(scraper: str) -> dict:
+def make_results_caracterization(scraper: str) -> Dict[str, int]:
     results = open_results_from_json(f"./results/{scraper}.json")
 
     return {
-        "Distinct Time Complexitys": len(
-            list({algorithm["time_complexity"] for algorithm in results})
+        "Distinct Time Complexities": len(
+            {algorithm["time_complexity"] for algorithm in results}
         ),
-        "Distinct Space Complexitys": len(
-            list({algorithm["space_complexity"] for algorithm in results})
+        "Distinct Space Complexities": len(
+            {algorithm["space_complexity"] for algorithm in results}
         ),
-        "Non Trusted Time Complexitys": len(
-            [
-                algorithm["trustable_time_complexity"]
-                for algorithm in results
-                if not algorithm["trustable_time_complexity"]
-            ]
+        "Non Trusted Time Complexities": sum(
+            [1 for algorithm in results if not algorithm["trustable_time_complexity"]]
         ),
-        "Non Trusted Space Complexitys": len(
-            [
-                algorithm["trustable_space_complexity"]
-                for algorithm in results
-                if not algorithm["trustable_space_complexity"]
-            ]
+        "Non Trusted Space Complexities": sum(
+            [1 for algorithm in results if not algorithm["trustable_space_complexity"]]
         ),
     }
 
 
-def make_completition_rate(scraper: str) -> dict:
+def make_completition_rate(scraper: str) -> Dict[str, int]:
     results = open_results_from_json(f"./results/{scraper}.json")
 
     total = len(results)
-    time_complexity, space_complexity = 0, 0
-    urls_with_problem = []
-
-    for algorithm in results:
-        if not algorithm["time_complexity"]:
-            time_complexity += 1
-        if not algorithm["space_complexity"]:
-            space_complexity += 1
-        if not algorithm["time_complexity"] or not algorithm["space_complexity"]:
-            urls_with_problem.append(algorithm["url"])
-
-    urls_with_problem = remove_duplicates(urls_with_problem)
+    time_complexity, space_complexity = sum(
+        1 for algorithm in results if not algorithm["time_complexity"]
+    ), sum(1 for algorithm in results if not algorithm["space_complexity"])
+    urls_with_problem = remove_duplicates(
+        [
+            algorithm["url"]
+            for algorithm in results
+            if not algorithm["time_complexity"] or not algorithm["space_complexity"]
+        ]
+    )
 
     return {
         "Total Algorithms": total,
-        "Time Complexity Extracted": f"{total - time_complexity} extracted - {100 - (time_complexity/total)*100}%",
-        "Space Complexity Extraced": f"{total - space_complexity} extracted - {100 - (space_complexity/total)*100}%",
+        "Time Complexity Extracted": f"{total - time_complexity} extracted - {100 - (time_complexity / total) * 100}%",
+        "Space Complexity Extracted": f"{total - space_complexity} extracted - {100 - (space_complexity / total) * 100}%",
         "URLs with problem": urls_with_problem,
     }
 
 
-def make_confusion_matrix(scraper: str) -> dict:
-    manual_results = open_results_from_json(f"./results/manual_{scraper}.json")
-    results = open_results_from_json(f"./results/{scraper}.json")
-
-    (
-        time_true_positive,
-        time_false_positive,
-        time_true_negative,
-        time_false_negative,
-    ) = (
-        0,
-        0,
-        0,
-        0,
+def calculate_metrics(
+    true_positive: int, false_positive: int, true_negative: int, false_negative: int
+) -> Dict[str, float]:
+    accuracy = (true_positive + true_negative) / (
+        true_positive + true_negative + false_positive + false_negative
     )
-
-    (
-        space_true_positive,
-        space_false_positive,
-        space_true_negative,
-        space_false_negative,
-    ) = (0, 0, 0, 0)
-
-    for result, manual_result in zip(results, manual_results):
-        if time_complexity := result["time_complexity"]:
-            if time_complexity == manual_result["time_complexity"]:
-                time_true_positive += 1
-            else:
-                time_false_positive += 1
-        elif not result["time_complexity"]:
-            if not manual_result["time_complexity"]:
-                time_true_negative += 1
-            else:
-                time_false_negative += 1
-
-        if space_complexity := result["space_complexity"]:
-            if space_complexity == manual_result["space_complexity"]:
-                space_true_positive += 1
-            else:
-                space_false_positive += 1
-        elif not result["space_complexity"]:
-            if not manual_result["space_complexity"]:
-                space_true_negative += 1
-            else:
-                space_false_negative += 1
-
-    time_accuracy = (time_true_positive + time_true_negative) / (
-        time_true_positive
-        + time_true_negative
-        + time_false_positive
-        + time_false_negative
-    )
-    time_precision = time_true_positive / (time_true_positive + time_false_positive)
-    time_recall = time_true_positive / (time_true_positive + time_false_negative)
-    time_f1_score = (2 * time_precision * time_recall) / (time_precision + time_recall)
-
-    space_accuracy = (space_true_positive + space_true_negative) / (
-        space_true_positive
-        + space_true_negative
-        + space_false_positive
-        + space_false_negative
-    )
-    space_precision = space_true_positive / (space_true_positive + space_false_positive)
-    space_recall = space_true_positive / (space_true_positive + space_false_negative)
-    space_f1_score = (2 * space_precision * space_recall) / (
-        space_precision + space_recall
-    )
-
-    # array = numpy.array(
-    #     [
-    #         [time_true_positive, time_false_negative],
-    #         [time_false_positive, time_false_negative],
-    #     ]
-    # )
-    # fig, ax = plot_confusion_matrix(conf_mat=array)
-    # plt.title("Time Complexity Confusion Matrix")
-    # plt.show()
-
-    # array = numpy.array(
-    #     [
-    #         [space_true_positive, space_false_negative],
-    #         [space_false_positive, space_false_negative],
-    #     ]
-    # )
-    # fig, ax = plot_confusion_matrix(conf_mat=array)
-    # plt.title("Space Complexity Confusion Matrix")
-    # plt.show()
+    precision = true_positive / (true_positive + false_positive)
+    recall = true_positive / (true_positive + false_negative)
+    f1_score = (2 * precision * recall) / (precision + recall)
 
     return {
-        "Time Complexity": {
-            "True Positive": time_true_positive,
-            "False Positive": time_false_positive,
-            "True Negative": time_true_negative,
-            "False negative": time_false_negative,
-            "Accuracy": time_accuracy,
-            "Precision": time_precision,
-            "Recall": time_recall,
-            "F1 Score": time_f1_score,
-        },
-        "Space Complexity": {
-            "True Positive": space_true_positive,
-            "False Positive": space_false_positive,
-            "True Negative": space_true_negative,
-            "False negative": space_false_negative,
-            "Accuracy": space_accuracy,
-            "Precision": space_precision,
-            "Recall": space_recall,
-            "F1 Score": space_f1_score,
-        },
+        "True Positive": true_positive,
+        "False Positive": false_positive,
+        "True Negative": true_negative,
+        "False negative": false_negative,
+        "Accuracy": accuracy,
+        "Precision": precision,
+        "Recall": recall,
+        "F1 Score": f1_score,
     }
 
 
-def make_manual_results_boilerplate(scraper: str):
-    results = open_results_from_json(f"./results/{scraper}.json")
-
-    write_results_to_json(
-        f"./results/manual_{scraper}",
-        [
-            {"url": alg["url"], "time_complexity": " ", "space_complexity": " "}
-            for alg in results
-        ],
+def plot_confusion(
+    title: str,
+    true_positive: int,
+    false_negative: int,
+    false_positive: int,
+    true_negative: int,
+):
+    array = numpy.array(
+        [[true_positive, false_negative], [false_positive, true_negative]]
     )
 
+    fig, ax = plot_confusion_matrix(conf_mat=array)
+    plt.title("Space Complexity Confusion Matrix")
+    plt.show()
 
-def make_complexitys_classification(scraper: str):
+
+def make_confusion_matrix(scraper: str) -> Dict[str, Dict[str, Any]]:
+    manual_results = open_results_from_json(f"./results/manual_{scraper}.json")
     results = open_results_from_json(f"./results/{scraper}.json")
-    (
-        time_constant,
-        time_linear,
-        time_exponential,
-        time_polynomial,
-        time_factorial,
-        time_logarithmic,
-    ) = (0, 0, 0, 0, 0, 0)
-    (
-        space_constant,
-        space_linear,
-        space_exponential,
-        space_polynomial,
-        space_factorial,
-        space_logarithmic,
-    ) = (0, 0, 0, 0, 0, 0)
-    for result in results:
-        if time_complexity := result["time_complexity"]:
-            if re.match(r"O\(1\)", time_complexity):
-                time_constant += 1
-            elif re.match(r"O\(\w\)", time_complexity):
-                time_linear += 1
-            elif re.match(r"O\(.*!.*\)", time_complexity):
-                time_factorial += 1
-            elif re.match(r"O\(.*log.*\)", time_complexity):
-                time_logarithmic += 1
-            elif re.match(r"O\(\d\^?\w\)", time_complexity):
-                time_exponential += 1
-            elif re.match(
-                r"O\(\w\s*[\^\*\+]?\s*[\d\w\s]+.*\)", time_complexity
-            ) or re.match(r"O\(\d+\(\w\*\w\)", time_complexity):
-                time_polynomial += 1
 
+    time_metrics = {
+        "true_positive": 0,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+    }
+
+    space_metrics = {
+        "true_positive": 0,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+    }
+
+    for result, manual_result in zip(results, manual_results):
+        # Time complexity
+        if time_complexity := result["time_complexity"]:
+            if time_complexity == manual_result["time_complexity"]:
+                time_metrics["true_positive"] += 1
+            else:
+                time_metrics["false_positive"] += 1
+        else:
+            if not manual_result["time_complexity"]:
+                time_metrics["true_negative"] += 1
+            else:
+                time_metrics["false_negative"] += 1
+
+        # Space complexity
         if space_complexity := result["space_complexity"]:
-            if re.match(r"O\(1\)", space_complexity):
-                space_constant += 1
-            elif re.match(r"O\(\w\)", space_complexity):
-                space_linear += 1
-            elif re.match(r"O\(.*!.*\)", space_complexity):
-                space_factorial += 1
-            elif re.match(r"O\(.*log.*\)", space_complexity):
-                space_logarithmic += 1
-            elif re.match(r"O\(\d\^?\w\)", space_complexity):
-                space_exponential += 1
-            elif re.match(
-                r"O\(\w\s*[\^\*\+]?\s*[\d\w\s]+.*\)", space_complexity
-            ) or re.match("O\(\d+\(\w\*\w\)", space_complexity):
-                space_polynomial += 1
+            if space_complexity == manual_result["space_complexity"]:
+                space_metrics["true_positive"] += 1
+            else:
+                space_metrics["false_positive"] += 1
+        else:
+            if not manual_result["space_complexity"]:
+                space_metrics["true_negative"] += 1
+            else:
+                space_metrics["false_negative"] += 1
+
+    # Calculating metrics
+    time_complexity_metrics = calculate_metrics(**time_metrics)
+    space_complexity_metrics = calculate_metrics(**space_metrics)
+
+    # Plotting the confusion matrices
+    plot_confusion("Time Complexity Confusion Matrix", **time_metrics)
+    plot_confusion("Space Complexity Confusion Matrix", **space_metrics)
+
+    # Return result
+    return {
+        "Time Complexity": time_complexity_metrics,
+        "Space Complexity": space_complexity_metrics,
+    }
+
+
+def make_manual_results_boilerplate(scraper: str) -> None:
+    results = open_results_from_json(f"./results/{scraper}.json")
+
+    manual_results = [
+        {"url": alg["url"], "time_complexity": " ", "space_complexity": " "}
+        for alg in results
+    ]
+
+    write_results_to_json(f"./results/manual_{scraper}", manual_results)
+
+
+def make_complexitys_classification(scraper: str) -> Dict[str, Dict[str, int]]:
+    results = open_results_from_json(f"./results/{scraper}.json")
+
+    time_classification = classify_complexity(
+        [result["time_complexity"] for result in results]
+    )
+    space_classification = classify_complexity(
+        [result["space_complexity"] for result in results]
+    )
 
     return {
-        "Time Complexity Classification": {
-            "Constant complexity": time_constant,
-            "Linear complexity": time_linear,
-            "Exponential complexity": time_exponential,
-            "Polynomial complexity": time_polynomial,
-            "Factorial complexity": time_factorial,
-            "Log complexity": time_logarithmic,
-        },
-        "Space Complexity Classification": {
-            "Constant complexity": space_constant,
-            "Linear complexity": space_linear,
-            "Exponential complexity": space_exponential,
-            "Polynomial complexity": space_polynomial,
-            "Factorial complexity": space_factorial,
-            "Log complexity": space_logarithmic,
-        },
+        "Time Complexity Classification": time_classification,
+        "Space Complexity Classification": space_classification,
+    }
+
+
+def classify_complexity(complexities: List[str]) -> Dict[str, int]:
+    constant, linear, exponential, polynomial, factorial, logarithmic = 0, 0, 0, 0, 0, 0
+    for complexity in complexities:
+        if re.match(r"O\(1\)", complexity):
+            constant += 1
+        elif re.match(r"O\(\w\)", complexity):
+            linear += 1
+        elif re.match(r"O\(.*!.*\)", complexity):
+            factorial += 1
+        elif re.match(r"O\(.*log.*\)", complexity):
+            logarithmic += 1
+        elif re.match(r"O\(\d\^?\w\)", complexity):
+            exponential += 1
+        elif re.match(r"O\(\w\s*[\^\*\+]?\s*[\d\w\s]+.*\)", complexity) or re.match(
+            r"O\(\d+\(\w\*\w\)", complexity
+        ):
+            polynomial += 1
+
+    return {
+        "Constant complexity": constant,
+        "Linear complexity": linear,
+        "Exponential complexity": exponential,
+        "Polynomial complexity": polynomial,
+        "Factorial complexity": factorial,
+        "Log complexity": logarithmic,
     }
 
 
@@ -273,31 +220,42 @@ def make_algorithms_histogram(scraper: str):
     plt.show()
 
 
-def calculate_html_nodes_depth(scraper: str):
-    def traverse_tree(node, depth):
-        tag = node.name
-        if tag not in depths:
-            depths[tag] = []
-        depths[tag].append(depth)
+def traverse_tree(
+    node: Union[Tag, NavigableString], depth: int, depths: Dict[str, List[int]]
+) -> None:
+    """
+    Traverse the BeautifulSoup tree and populate the depths dictionary with tag names and their depths.
 
-        if hasattr(node, "children"):
-            for child in node.children:
-                if hasattr(child, "name"):
-                    traverse_tree(child, depth + 1)
+    Args:
+        node: The current BeautifulSoup node.
+        depth: Current depth of traversal.
+        depths: Dictionary to populate with depths.
+    """
+    if isinstance(node, Tag):  # Using isinstance to check if node is a Tag type
+        if node.name not in depths:
+            depths[node.name] = []
+        depths[node.name].append(depth)
 
+        for child in node.children:
+            traverse_tree(child, depth + 1, depths)
+
+
+def calculate_html_nodes_depth(scraper: str) -> None:
     results = open_results_from_json(f"./results/{scraper}.json")
-    urls = list(set([result["url"] for result in results]))
+    urls = list(set(result["url"] for result in results))
 
-    all_max_depths, all_num_nodes = [], []
+    all_max_depths: List[int] = []
+    all_num_nodes: List[int] = []
+
     for url in urls:
         response = requests.get(url)
         soup = BeautifulSoup(response.content, "html.parser")
 
-        depths = {}
-        traverse_tree(soup, 0)
+        depths: Dict[str, List[int]] = {}
+        traverse_tree(soup, 0, depths)
 
-        max_depth = max([max(depths[tag]) for tag in depths])
-        num_nodes = sum([len(depths[tag]) for tag in depths])
+        max_depth = max(max(depths[tag]) for tag in depths)
+        num_nodes = sum(len(depths[tag]) for tag in depths)
 
         all_max_depths.append(max_depth)
         all_num_nodes.append(num_nodes)
