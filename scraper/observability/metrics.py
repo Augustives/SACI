@@ -184,20 +184,21 @@ def make_complexitys_classification(scraper: str) -> Dict[str, Dict[str, int]]:
 def classify_complexity(complexities: List[str]) -> Dict[str, int]:
     constant, linear, exponential, polynomial, factorial, logarithmic = 0, 0, 0, 0, 0, 0
     for complexity in complexities:
-        if re.match(r"O\(1\)", complexity):
-            constant += 1
-        elif re.match(r"O\(\w\)", complexity):
-            linear += 1
-        elif re.match(r"O\(.*!.*\)", complexity):
-            factorial += 1
-        elif re.match(r"O\(.*log.*\)", complexity):
-            logarithmic += 1
-        elif re.match(r"O\(\d\^?\w\)", complexity):
-            exponential += 1
-        elif re.match(r"O\(\w\s*[\^\*\+]?\s*[\d\w\s]+.*\)", complexity) or re.match(
-            r"O\(\d+\(\w\*\w\)", complexity
-        ):
-            polynomial += 1
+        if complexity:
+            if re.match(r"O\(1\)", complexity):
+                constant += 1
+            elif re.match(r"O\(\w\)", complexity):
+                linear += 1
+            elif re.match(r"O\(.*!.*\)", complexity):
+                factorial += 1
+            elif re.match(r"O\(.*log.*\)", complexity):
+                logarithmic += 1
+            elif re.match(r"O\(\d\^?\w\)", complexity):
+                exponential += 1
+            elif re.match(r"O\(\w\s*[\^\*\+]?\s*[\d\w\s]+.*\)", complexity) or re.match(
+                r"O\(\d+\(\w\*\w\)", complexity
+            ):
+                polynomial += 1
 
     return {
         "Constant complexity": constant,
@@ -287,5 +288,5 @@ def make_results_analysis(scraper: str):
             }
         ],
     )
-    # calculate_html_nodes_depth(scraper)
-    # make_algorithms_histogram(scraper)
+    calculate_html_nodes_depth(scraper)
+    make_algorithms_histogram(scraper)
