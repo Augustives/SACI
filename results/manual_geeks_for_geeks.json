@@ -510,6 +510,11 @@
     "space_complexity": "O(V)"
   },
   {
+    "url": "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/",
+    "time_complexity": "O(V + E)",
+    "space_complexity": "O(V)"
+  },
+  {
     "url": "https://www.geeksforgeeks.org/detect-cycle-undirected-graph/",
     "time_complexity": "O(V+E)",
     "space_complexity": "O(V)"
@@ -1000,6 +1005,11 @@
     "space_complexity": "O(1)"
   },
   {
+    "url": "https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/",
+    "time_complexity": "O(N)",
+    "space_complexity": "O(N)"
+  },
+  {
     "url": "https://www.geeksforgeeks.org/inplace-m-x-n-size-matrix-transpose/",
     "time_complexity": "O(R*C)",
     "space_complexity": "O(size of the bitset)"
@@ -1475,14 +1485,14 @@
     "space_complexity": "O(h)"
   },
   {
-    "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays/",
-    "time_complexity": "O(n)",
-    "space_complexity": "O(1)"
+    "url": "https://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/",
+    "time_complexity": "O(N)",
+    "space_complexity": "O(N)"
   },
   {
     "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays/",
-    "time_complexity": "O(logn)",
-    "space_complexity": "O(logn)"
+    "time_complexity": "O(n)",
+    "space_complexity": "O(1)"
   },
   {
     "url": "https://www.geeksforgeeks.org/median-of-two-sorted-arrays/",
@@ -1768,6 +1778,11 @@
     "url": "https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/",
     "time_complexity": "O(M*N)",
     "space_complexity": "O(1)"
+  },
+  {
+    "url": "https://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/",
+    "time_complexity": "O(n)",
+    "space_complexity": "O(h)"
   },
   {
     "url": "https://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/",
