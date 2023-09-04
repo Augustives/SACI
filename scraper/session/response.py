@@ -18,7 +18,6 @@ class Response:
         self.headers = headers
         self.original_response = original_response
         self.soup = soup or BeautifulSoup(content, "html.parser")
-        self._tree = None
 
     @classmethod
     async def create_response_object(cls, aiohttp_response: ClientResponse):
