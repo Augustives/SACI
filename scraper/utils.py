@@ -2,7 +2,6 @@ import json
 
 from scraper.exceptions import TooManyRetrysException
 from scraper.observability.log import scraper_log as log
-from scraper.settings import UNDESIRED_CHARACTERS
 
 
 def retry(
@@ -26,12 +25,6 @@ def retry(
         return wrapper
 
     return func_wrapper
-
-
-def clean_text_characters(text: str) -> str:
-    for character in UNDESIRED_CHARACTERS:
-        text = text.replace(character, "")
-    return text
 
 
 def remove_duplicates(data: list) -> list:
