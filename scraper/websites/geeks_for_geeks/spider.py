@@ -80,8 +80,7 @@ async def run(url: str = None) -> list:
     session.default_headers = HEADERS
 
     log.info('Starting "Geeks for Geeks" algorithms extraction')
+    await follow_login(session)
 
     algorithms_urls = [url] if url else await follow_algorithms_urls(session)
-
-    await follow_login(session)
     return await follow_algorithms(session, algorithms_urls)
