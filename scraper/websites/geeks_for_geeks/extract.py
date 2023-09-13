@@ -1,11 +1,10 @@
 from re import IGNORECASE, compile, search
 from typing import Dict, List, Optional, Tuple, Union
 
-from bs4.element import NavigableString, Tag
+from bs4.element import Tag
 
 from scraper.exceptions import (
-    FailedSpaceComplexityExtraction,
-    FailedTimeComplexityExtraction,
+    FailedComplexityExtraction,
 )
 from scraper.observability.log import scraper_log as log
 from scraper.session.response import Response
@@ -45,7 +44,7 @@ def extract_code_comments(algorithm: str) -> str:
 
 
 def extract_complexity_from_reference(
-    reference: Tag, regex_map: Dict[str, List[str]], error_exception: Exception
+    reference: Tag, regex_map: Dict[str, List[str]]
 ) -> str:
     for regex in regex_map["word"]:
         word = reference.find_next(string=compile(regex))
@@ -57,7 +56,7 @@ def extract_complexity_from_reference(
                     )
                     if complexity:
                         return complexity
-    raise error_exception
+    raise FailedComplexityExtraction
 
 
 def extract_name(dom_reference: Tag) -> str:
@@ -130,16 +129,16 @@ def extract_data(
     for ref in dom_references:
         try:
             time_complexity = extract_complexity_from_reference(
-                ref, TIME_COMPLEXITY_REGEX, FailedTimeComplexityExtraction
+                ref, TIME_COMPLEXITY_REGEX
             )
-        except FailedTimeComplexityExtraction:
+        except FailedComplexityExtraction:
             time_complexity, _ = extract_complexity_with_fallback(ref)
 
         try:
             space_complexity = extract_complexity_from_reference(
-                ref, AUXILIARY_SPACE_REGEX, FailedSpaceComplexityExtraction
+                ref, AUXILIARY_SPACE_REGEX
             )
-        except FailedSpaceComplexityExtraction:
+        except FailedComplexityExtraction:
             _, space_complexity = extract_complexity_with_fallback(ref)
 
         complexities.append(

@@ -13,13 +13,7 @@ class FailedExtraction(Exception):
     pass
 
 
-class FailedTimeComplexityExtraction(Exception):
-    """Failed to extract the time complexity"""
-
-    pass
-
-
-class FailedSpaceComplexityExtraction(Exception):
-    """Failed to extract the space complexity"""
+class FailedComplexityExtraction(Exception):
+    """Failed to extract the complexitys"""
 
     pass
