@@ -1,3 +1,8 @@
+class InvalidUrlException(Exception):
+    def __init__(self, url):
+        super().__init__(f"The provided URL '{url}' is not valid.")
+
+
 class TooManyRetrysException(Exception):
     pass
 
@@ -8,13 +13,7 @@ class FailedExtraction(Exception):
     pass
 
 
-class FailedTimeComplexityExtraction(Exception):
-    """Failed to extract the time complexity"""
-
-    pass
-
-
-class FailedSpaceComplexityExtraction(Exception):
-    """Failed to extract the space complexity"""
+class FailedComplexityExtraction(Exception):
+    """Failed to extract the complexitys"""
 
     pass

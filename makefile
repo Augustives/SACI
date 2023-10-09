@@ -1,11 +1,11 @@
 PYTHON :=
-	ifeq ($(OS),Windows_NT)
-		PYTHON = venv/Scripts/python
-		PIP = venv/Scripts/pip
-	else
-		PYTHON = venv/bin/python3
-		PIP = venv/bin/pip
-	endif
+ifeq ($(OS),Windows_NT)
+	PYTHON = venv/Scripts/python
+	PIP = venv/Scripts/pip
+else
+	PYTHON = venv/bin/python3
+	PIP = venv/bin/pip
+endif
 
 requirements: requirements.txt
 	$(PIP) install -r requirements.txt
