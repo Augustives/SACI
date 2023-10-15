@@ -44,12 +44,7 @@ TIME_COMPLEXITY_REGEX = {
     "word": [
         r"[Tt]ime [Cc]omplexit\w*[\s]?:|[Tt]ime [Cc]omplexit\w*[\s]?",
     ],
-    "value": [
-        r"[Tt]ime [Cc]omplexit\w*\s?:.*?(O\s*\(.*?\))",
-        r"[Tt]ime [Cc]omplexit\w*\s?.*?(O\s*\(.*?\))",
-        r"[Tt]ime [Cc]omplexit\w*\s.*?\sis\s.*?(O\s*\(.*?\))",
-        r"[Tt]ime [Cc]omplexit\w*\s?:?.*?\sis\s(\w*)",
-    ],
+    "value": "time complexity",
     "fallback": r"O\s*\(.*?\)",
 }
 
@@ -58,16 +53,7 @@ AUXILIARY_SPACE_REGEX = {
         r"[Aa]uxiliary [Ss]pace\s?:|[Aa]uxiliary [Ss]pace\s?",
         r"[Ss]pace [Cc]omplexit\w*\s?:|[Ss]pace [Cc]omplexit\w*\s?",
     ],
-    "value": [
-        r"[Aa]uxiliary [Ss]pace\s?[\[Cc\]omplexit\w*]?:.*?(O\s*\(.*?\))",
-        r"[Aa]uxiliary [Ss]pace\s?[\[Cc\]omplexit\w*]?.*?(O\s*\(.*?\))",
-        r"[Ss]pace [Cc]omplexit\w*\s?:.*?(O\s*\(.*?\))",
-        r"[Ss]pace [Cc]omplexit\w*\s?.*?(O\s*\(.*?\))",
-        r"[Aa]uxiliary [Ss]pace\s?[\[Cc\]omplexit\w*]?.*?\sis\s.*?(O\s*\(.*?\))",
-        r"[Ss]pace [Cc]omplexit\w*\s.*?\sis\s.*?(O\s*\(.*?\))",
-        r"[Aa]uxiliary [Ss]pace\w*\s?:?.*?\sis\s(\w*)",
-        r"[Ss]pace [Cc]omplexit\w*\s?:?.*?\sis\s(\w*)",
-    ],
+    "value": "auxiliary/space complexity",
     "fallback": r"O\s*\(.*?\)",
 }
 

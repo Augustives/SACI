@@ -1,4 +1,5 @@
 import asyncio
+import inspect
 
 from aiohttp import ClientSession
 from requests_html import AsyncHTMLSession
@@ -77,7 +78,11 @@ class HttpSession:
 
         if callbacks:
             for callback in callbacks:
-                response = callback(response)
+                if inspect.iscoroutinefunction(callback):
+                    response = await callback(response)
+                else:
+                    response = callback(response)
+
         return response
 
     async def js_script_request(self, **kwargs):

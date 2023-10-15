@@ -1,13 +1,13 @@
+import asyncio
 from re import IGNORECASE, compile, search
 from typing import Dict, List, Optional, Tuple, Union
 
 from bs4.element import Tag
 
-from scraper.exceptions import (
-    FailedComplexityExtraction,
-)
+from scraper.exceptions import FailedComplexityExtraction
 from scraper.observability.log import scraper_log as log
 from scraper.session.response import Response
+from scraper.utils import LlmComplexitySearcher
 from scraper.websites.geeks_for_geeks.settings import (
     AUXILIARY_SPACE_REGEX,
     COMMENTS_STARTING_STRINGS,
@@ -15,6 +15,8 @@ from scraper.websites.geeks_for_geeks.settings import (
     LANGUAGES,
     TIME_COMPLEXITY_REGEX,
 )
+
+llm_searcher = LlmComplexitySearcher()
 
 
 def search_regex(pattern: str, text: str, group_num: int = 0) -> Optional[str]:
@@ -43,19 +45,20 @@ def extract_code_comments(algorithm: str) -> str:
             return algorithm_comments
 
 
-def extract_complexity_from_reference(
+async def extract_complexity_from_reference(
     reference: Tag, regex_map: Dict[str, List[str]]
 ) -> str:
     for regex in regex_map["word"]:
         word = reference.find_next(string=compile(regex))
         if word:
-            for regex in regex_map["value"]:
-                for element in HTML_ELEMENTS_NAMES:
-                    complexity = search_regex(
-                        regex, word.find_previous(element).text, 1
-                    )
-                    if complexity:
-                        return complexity
+            for element in HTML_ELEMENTS_NAMES:
+                search_result = await llm_searcher.search(
+                    regex_map["value"], word.find_previous(element).text
+                )
+
+                complexity = search_result.get("complexity")
+                if complexity:
+                    return complexity
     raise FailedComplexityExtraction
 
 
@@ -117,7 +120,7 @@ def extract_codes_and_references(
     return codes, references
 
 
-def extract_data(
+async def extract_data(
     response: Response,
 ) -> List[Dict[str, Union[str, bool, Dict[str, str]]]]:
     codes, dom_references = extract_codes_and_references(response)
@@ -128,14 +131,14 @@ def extract_data(
     complexities = []
     for ref in dom_references:
         try:
-            time_complexity = extract_complexity_from_reference(
+            time_complexity = await extract_complexity_from_reference(
                 ref, TIME_COMPLEXITY_REGEX
             )
         except FailedComplexityExtraction:
             time_complexity, _ = extract_complexity_with_fallback(ref)
 
         try:
-            space_complexity = extract_complexity_from_reference(
+            space_complexity = await extract_complexity_from_reference(
                 ref, AUXILIARY_SPACE_REGEX
             )
         except FailedComplexityExtraction:

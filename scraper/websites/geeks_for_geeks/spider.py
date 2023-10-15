@@ -20,11 +20,11 @@ def filter_algorithms_urls(algorithms_urls: list) -> list:
     return [href for href in algorithms_urls if "geeksquiz" not in href]
 
 
-def extract_algorithm_data(response: Response) -> list:
+async def extract_algorithm_data(response: Response) -> list:
     if not response:
         return []
 
-    data = extract_data(response)
+    data = await extract_data(response)
     if not data:
         raise FailedExtraction
 
