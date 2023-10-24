@@ -42,7 +42,7 @@
   {
     "url": "https://www.geeksforgeeks.org/a-boolean-matrix-question/",
     "time_complexity": "O(M*N)",
-    "space_complexity": "O(M + N)"
+    "space_complexity": "O(M+N)"
   },
   {
     "url": "https://www.geeksforgeeks.org/a-boolean-matrix-question/",

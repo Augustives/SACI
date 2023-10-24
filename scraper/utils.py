@@ -56,12 +56,13 @@ class LlmComplexitySearcher:
     def __init__(self):
         self.LLM = OpenAI(openai_api_key=os.environ.get("OPENAI_KEY", ""))
         self.PROMPT = PromptTemplate.from_template(
-            """Consider that sometimes the space complexity is also called as auxiliary space.
-            Both complexitys often come in this format: 'Some type of complexity: value of complexity'.
+            """I am using you during a scraping operation which I need to extract from text the values of complexity.
+            Consider that sometimes the space complexity is also called as auxiliary space.
+            Consider that both complexitys often come in this format: 'Some type of complexity: value of complexity'.
             But they can also come inside the text like: 'The type of complexity of the given ... is ...'.
-            Give the answer in JSON format with no line breaks, key should be "complexity".
+            Give the answer in JSON format with no line breaks, with a key called "complexity" and the value for the key is your answer.
             If you cant determine the answer give the json with a null in the value.
-            What is the {complexity} that is written in the following text: {text}"""
+            What is the {complexity} that is written in the following text: "{text}"?"""
         )
         self.LLM_CHAIN = LLMChain(prompt=self.PROMPT, llm=self.LLM)
 

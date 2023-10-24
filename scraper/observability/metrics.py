@@ -288,5 +288,5 @@ def make_results_analysis(scraper: str):
             }
         ],
     )
-    calculate_html_nodes_depth(scraper)
-    make_algorithms_histogram(scraper)
+    # calculate_html_nodes_depth(scraper)
+    # make_algorithms_histogram(scraper)
