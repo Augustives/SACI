@@ -11,7 +11,7 @@
   },
   {
     "url": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/",
-    "time_complexity": "O(N * W)",
+    "time_complexity": "O(N*W)",
     "space_complexity": "O(N * W)"
   },
   {

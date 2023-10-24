@@ -51,14 +51,19 @@ def write_results_to_json(file_path: str, data: list):
 
 class LlmComplexitySearcher:
     _instance = None
-    LLM = OpenAI(openai_api_key=os.environ.get("OPENAI_KEY"))
-    PROMPT = PromptTemplate.from_template(
-        """Give the answer in JSON format with no line breaks, key should be "complexity".
-        If you cant determine the answer give the json with a null in the value.
-        What is the {complexity} that is written in the following text: {text}"""
-    )
-    LLM_CHAIN = LLMChain(prompt=PROMPT, llm=LLM)
     throttler = Throttler(rate_limit=100, period=60)
+
+    def __init__(self):
+        self.LLM = OpenAI(openai_api_key=os.environ.get("OPENAI_KEY", ""))
+        self.PROMPT = PromptTemplate.from_template(
+            """Consider that sometimes the space complexity is also called as auxiliary space.
+            Both complexitys often come in this format: 'Some type of complexity: value of complexity'.
+            But they can also come inside the text like: 'The type of complexity of the given ... is ...'.
+            Give the answer in JSON format with no line breaks, key should be "complexity".
+            If you cant determine the answer give the json with a null in the value.
+            What is the {complexity} that is written in the following text: {text}"""
+        )
+        self.LLM_CHAIN = LLMChain(prompt=self.PROMPT, llm=self.LLM)
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:

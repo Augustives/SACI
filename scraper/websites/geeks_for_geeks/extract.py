@@ -1,4 +1,3 @@
-import asyncio
 from re import IGNORECASE, compile, search
 from typing import Dict, List, Optional, Tuple, Union
 
@@ -17,6 +16,10 @@ from scraper.websites.geeks_for_geeks.settings import (
 )
 
 llm_searcher = LlmComplexitySearcher()
+
+
+def get_sourceline(element):
+    return element.sourceline if isinstance(element, Tag) else element.parent.sourceline
 
 
 def search_regex(pattern: str, text: str, group_num: int = 0) -> Optional[str]:
@@ -48,17 +51,26 @@ def extract_code_comments(algorithm: str) -> str:
 async def extract_complexity_from_reference(
     reference: Tag, regex_map: Dict[str, List[str]]
 ) -> str:
-    for regex in regex_map["word"]:
-        word = reference.find_next(string=compile(regex))
-        if word:
-            for element in HTML_ELEMENTS_NAMES:
-                search_result = await llm_searcher.search(
-                    regex_map["value"], word.find_previous(element).text
-                )
+    matches = [
+        reference.find_next(string=compile(regex)) for regex in regex_map["word"]
+    ]
 
-                complexity = search_result.get("complexity")
-                if complexity:
-                    return complexity
+    matches = [match for match in matches if match]
+
+    closest_match = min(
+        matches,
+        key=lambda match: abs(get_sourceline(reference) - get_sourceline(match)),
+    )
+
+    for element in HTML_ELEMENTS_NAMES:
+        search_result = await llm_searcher.search(
+            regex_map["value"], closest_match.find_previous(element).text
+        )
+
+        complexity = search_result.get("complexity")
+        if complexity:
+            return complexity
+
     raise FailedComplexityExtraction
 
 
