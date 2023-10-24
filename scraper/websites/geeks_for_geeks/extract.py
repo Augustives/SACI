@@ -17,6 +17,10 @@ from scraper.websites.geeks_for_geeks.settings import (
 )
 
 
+def get_sourceline(element):
+    return element.sourceline if isinstance(element, Tag) else element.parent.sourceline
+
+
 def search_regex(pattern: str, text: str, group_num: int = 0) -> Optional[str]:
     match = search(pattern, text)
     return match.group(group_num) if match else None
@@ -46,16 +50,25 @@ def extract_code_comments(algorithm: str) -> str:
 def extract_complexity_from_reference(
     reference: Tag, regex_map: Dict[str, List[str]]
 ) -> str:
-    for regex in regex_map["word"]:
-        word = reference.find_next(string=compile(regex))
-        if word:
-            for regex in regex_map["value"]:
-                for element in HTML_ELEMENTS_NAMES:
-                    complexity = search_regex(
-                        regex, word.find_previous(element).text, 1
-                    )
-                    if complexity:
-                        return complexity
+    matches = [
+        reference.find_next(string=compile(regex)) for regex in regex_map["word"]
+    ]
+
+    matches = [match for match in matches if match]
+
+    closest_match = min(
+        matches,
+        key=lambda match: abs(get_sourceline(reference) - get_sourceline(match)),
+    )
+
+    for regex in regex_map["value"]:
+        for element in HTML_ELEMENTS_NAMES:
+            complexity = search_regex(
+                regex, closest_match.find_previous(element).text, 1
+            )
+            if complexity:
+                return complexity
+
     raise FailedComplexityExtraction
 
 

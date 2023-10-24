@@ -39,5 +39,5 @@ def open_results_from_json(file_path: str) -> dict:
 
 
 def write_results_to_json(file_path: str, data: list):
-    with open(f"{file_path}.json", "w") as file:
+    with open(f"results/{file_path}.json", "w") as file:
         json.dump(data, file)
