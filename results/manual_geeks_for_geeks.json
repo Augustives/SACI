@@ -105,11 +105,6 @@
     "space_complexity": "O(1)"
   },
   {
-    "url": "https://www.geeksforgeeks.org/array-rotation/",
-    "time_complexity": "O(d*n)",
-    "space_complexity": "O(n)"
-  },
-  {
     "url": "https://www.geeksforgeeks.org/average-of-a-stream-of-numbers/",
     "time_complexity": "O(n)",
     "space_complexity": "O(1)"
@@ -412,11 +407,6 @@
   {
     "url": "https://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/",
     "time_complexity": "O(log5n)",
-    "space_complexity": "O(1)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/",
-    "time_complexity": "O(n*log5n)",
     "space_complexity": "O(1)"
   },
   {
@@ -747,21 +737,6 @@
   {
     "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
     "time_complexity": "O(n)",
-    "space_complexity": "O(1)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
-    "time_complexity": "O(N)",
-    "space_complexity": "O(N)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
-    "time_complexity": "O(N)",
-    "space_complexity": "O(N)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/",
-    "time_complexity": "O(N*Log2N)",
     "space_complexity": "O(1)"
   },
   {
@@ -1200,18 +1175,8 @@
     "space_complexity": "O(K)"
   },
   {
-    "url": "https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/",
-    "time_complexity": "O(N * log(N)) + O(K) ~= O(N * log(N))",
-    "space_complexity": "O(N)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/",
-    "time_complexity": "O(NLog(H-L))",
-    "space_complexity": "O(1)"
-  },
-  {
     "url": "https://www.geeksforgeeks.org/kasais-algorithm-for-construction-of-lcp-array-from-suffix-array/",
-    "time_complexity": "O(m + Log n)",
+    "time_complexity": "O(n Log n)",
     "space_complexity": " "
   },
   {
@@ -1228,11 +1193,6 @@
     "url": "https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/",
     "time_complexity": "O(n)",
     "space_complexity": "O(1)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/",
-    "time_complexity": "",
-    "space_complexity": ""
   },
   {
     "url": "https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/",
@@ -1365,23 +1325,8 @@
     "space_complexity": "O(n)"
   },
   {
-    "url": "https://www.geeksforgeeks.org/lru-cache-implementation/",
-    "time_complexity": "O(1)",
-    "space_complexity": "O(n)"
-  },
-  {
     "url": "https://www.geeksforgeeks.org/m-coloring-problem/",
     "time_complexity": "O(mV)",
-    "space_complexity": "O(V)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/m-coloring-problem/",
-    "time_complexity": "O(mV)",
-    "space_complexity": "O(V)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/m-coloring-problem/",
-    "time_complexity": "O(V + E)",
     "space_complexity": "O(V)"
   },
   {
@@ -1622,32 +1567,12 @@
   {
     "url": "https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/",
     "time_complexity": "O(N!)",
-    "space_complexity": "O(N2)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/",
-    "time_complexity": "O(N!)",
     "space_complexity": "O(N)"
   },
   {
     "url": "https://www.geeksforgeeks.org/n-queen-problem-using-branch-and-bound/",
-    "time_complexity": "O(1)",
-    "space_complexity": ""
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
-    "time_complexity": "O(N2)",
-    "space_complexity": "O(1)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
-    "time_complexity": "O(N2)",
-    "space_complexity": "O(1)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
-    "time_complexity": "O(N2)",
-    "space_complexity": "O(1)"
+    "time_complexity": "O(N!)",
+    "space_complexity": "O(N^2)"
   },
   {
     "url": "https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/",
@@ -1688,11 +1613,6 @@
     "url": "https://www.geeksforgeeks.org/next-greater-element/",
     "time_complexity": "O(N)",
     "space_complexity": "O(N)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/next-greater-element/",
-    "time_complexity": "O(N)",
-    "space_complexity": "O(1)"
   },
   {
     "url": "https://www.geeksforgeeks.org/next-higher-number-with-same-number-of-set-bits/",
@@ -1953,6 +1873,11 @@
     "url": "https://www.geeksforgeeks.org/rat-in-a-maze/",
     "time_complexity": "O(2^(n^2))",
     "space_complexity": "O(n^2)"
+  },
+  {
+    "url": "https://www.geeksforgeeks.org/rat-in-a-maze/",
+    "time_complexity": "O(4^(m*n))",
+    "space_complexity": "O(m*n)"
   },
   {
     "url": "https://www.geeksforgeeks.org/reservoir-sampling/",
@@ -2450,21 +2375,6 @@
     "space_complexity": "O(NM)"
   },
   {
-    "url": "https://www.geeksforgeeks.org/types-of-binary-tree/",
-    "time_complexity": "",
-    "space_complexity": ""
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/types-of-binary-tree/",
-    "time_complexity": "",
-    "space_complexity": ""
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/types-of-binary-tree/",
-    "time_complexity": "",
-    "space_complexity": ""
-  },
-  {
     "url": "https://www.geeksforgeeks.org/ukkonens-suffix-tree-construction-part-6/",
     "time_complexity": "",
     "space_complexity": ""
@@ -2570,21 +2480,6 @@
     "space_complexity": "O(R - L)"
   },
   {
-    "url": "https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/",
-    "time_complexity": "O(N * N!)",
-    "space_complexity": "O(|S|)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/",
-    "time_complexity": "O(n!)",
-    "space_complexity": "O(n*n!)"
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/",
-    "time_complexity": "O(N*N!)",
-    "space_complexity": "O(|S|)"
-  },
-  {
     "url": "https://www.geeksforgeeks.org/write-a-program-to-add-two-numbers-in-base-14/",
     "time_complexity": "O(|num1|)",
     "space_complexity": "O(|num1|)"
@@ -2617,6 +2512,21 @@
   {
     "url": "https://www.geeksforgeeks.org/write-an-efficient-method-to-check-if-a-number-is-multiple-of-3/",
     "time_complexity": "O(log n)",
+    "space_complexity": "O(1)"
+  },
+  {
+    "url": "https://www.geeksforgeeks.org/xor-linked-list-a-memory-efficient-doubly-linked-list-set-1/",
+    "time_complexity": "O(n)",
+    "space_complexity": "O(1)"
+  },
+  {
+    "url": "https://www.geeksforgeeks.org/xor-linked-list-a-memory-efficient-doubly-linked-list-set-1/",
+    "time_complexity": "O(n)",
+    "space_complexity": "O(1)"
+  },
+  {
+    "url": "https://www.geeksforgeeks.org/xor-linked-list-a-memory-efficient-doubly-linked-list-set-1/",
+    "time_complexity": "O(n)",
     "space_complexity": "O(1)"
   },
   {
