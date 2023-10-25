@@ -25,16 +25,6 @@
     "space_complexity": ""
   },
   {
-    "url": "https://www.geeksforgeeks.org/0-1-knapsack-using-branch-and-bound/",
-    "time_complexity": "O(N)",
-    "space_complexity": ""
-  },
-  {
-    "url": "https://www.geeksforgeeks.org/8-puzzle-problem-using-branch-and-bound/",
-    "time_complexity": "O(N^2 * N!)",
-    "space_complexity": "O(N^2)"
-  },
-  {
     "url": "https://www.geeksforgeeks.org/a-boolean-matrix-question/",
     "time_complexity": "O((N*M)*(N + M))",
     "space_complexity": "O(1)"
