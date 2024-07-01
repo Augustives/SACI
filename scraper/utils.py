@@ -56,7 +56,7 @@ class LlmComplexitySearcher:
     def __init__(self):
         self.LLM = OpenAI(openai_api_key=os.environ.get("OPENAI_KEY", ""))
         self.PROMPT = PromptTemplate.from_template(
-            """I am using you during a scraping operation which I need to extract from text the values of complexity.
+            """I am using you during a scraping operation in which I need to extract from a piece of text the values of complexity/code complexity.
             Consider that sometimes the space complexity is also called as auxiliary space.
             Consider that both complexitys often come in this format: 'Some type of complexity: value of complexity'.
             But they can also come inside the text like: 'The type of complexity of the given ... is ...'.
